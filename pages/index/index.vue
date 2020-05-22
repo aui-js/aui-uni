@@ -4,8 +4,14 @@
 		<view class="text-area">
 			<text class="title">{{title}}</text>
 		</view>
-		<view class="showload-btn" @click.stop="showload()">显示loading加载</view>
-		<aui-loading :show="auiLoading.show" direction="row" msg="加载中" :mask="true"></aui-loading>
+		<view class="aui-button" @click.stop="showload()">显示loading加载</view>
+		<aui-loading 
+			:show="auiLoading.show" 
+			:type="auiLoading.tyle" 
+			:direction="auiLoading.row" 
+			:msg="auiLoading.msg" 
+			:mask="auiLoading.mask"
+		></aui-loading>
 	</view>
 </template>
 
@@ -19,6 +25,9 @@
 			return {
 				auiLoading: {
 					show: false,
+					type: 4,
+					direction: 'col',
+					msg: '加载中',
 					mask: false,
 					
 				},
@@ -35,7 +44,7 @@
 				console.log(this.show)
 				setTimeout(function(){
 					_this.auiLoading.show = false;
-				},1000)
+				},100000)
 			},
 		}
 	}
@@ -48,7 +57,6 @@
 		align-items: center;
 		justify-content: center;
 	}
-
 	.logo {
 		height: 200rpx;
 		width: 200rpx;
