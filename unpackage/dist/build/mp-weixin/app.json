@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "pages/API/index/index",
+    "pages/API/plugs/index/index",
+    "pages/API/plugs/loading/loading",
+    "pages/API/plugs/dialog/dialog"
+  ],
+  "subPackages": [],
+  "window": {},
+  "usingComponents": {}
+}

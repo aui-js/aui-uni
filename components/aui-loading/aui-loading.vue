@@ -16,7 +16,7 @@
 				<view class="span"></view>
 				<view class="span"></view>
 			</view>
-			<view class="aui-loading-msg">{{msg}}<view class="dotting"></view></view>
+			<view class="aui-loading-msg">{{msg}}</view>
 		</view>
 	</view>
 	<view class="aui-loading aui-loading-dots" v-else-if="show && type == 4">
@@ -62,16 +62,11 @@
 		},
 		data() {
 			return {
-				show: this.show,
-				type: this.type,
-				msg: this.msg,
-				mask: this.mask,
-				direction: this.direction,
-				theme: this.theme
+				
 			};
 		},
 		created(){
-			console.log(this.type);
+			//console.log(this.type);
 		},
 	}
 </script>
@@ -273,7 +268,7 @@
 	.aui-loading.aui-loading-dots{background-color: #FFF; height: 100%; width: 100%; position: fixed; z-index: 996; margin-top: 0px; top: 0px;}
 	.aui-loading.aui-loading-dots .aui-loading-main{width: 100%;height: 100%;position: relative;}
 	.aui-loading.aui-loading-dots .aui-loading-dot-items {position: absolute;left: 50%;top: 50%;height: 120px;width: 120px; text-align: center; margin-top: -60px;margin-left: -60px;}
-	.aui-loading.aui-loading-dots .aui-loading-dot-item{width: 10px;height: 10px; background-color: #ec2b45; display: inline-block; margin-right: 6px; margin-top: 20px; border-radius: 2px; transform: scale(1) skewX(-30deg);}
+	.aui-loading.aui-loading-dots .aui-loading-dot-item{width: 10px;height: 10px; background-color: #ec2b45; display: inline-block; margin-right: 6px; margin-top: 20px; border-radius: 2px; -webkit-transform: scale(1) skewX(-30deg); transform: scale(1) skewX(-30deg);}
 	.aui-loading.aui-loading-dots #dot_one {-webkit-animation: dot_one 1.5s infinite; animation: dot_one 1.5s infinite;}
 	.aui-loading.aui-loading-dots #dot_two {-webkit-animation: dot_two 1.5s infinite; animation: dot_two 1.5s infinite; -webkit-animation-delay: 0.2s; animation-delay: 0.2s;}
 	.aui-loading.aui-loading-dots #dot_three {margin-right: 0; -webkit-animation: dot_three 1.5s infinite; animation: dot_three 1.5s infinite; -webkit-animation-delay: 0.4s; animation-delay: 0.4s;}
