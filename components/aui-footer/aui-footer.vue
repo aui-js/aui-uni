@@ -1,9 +1,9 @@
 <template name="aui-footer">
 	<view class="aui-footer row-before">
-		<view class="aui-footer-list active" onclick="aui.openWin('index.html')">
+		<view class="aui-footer-list" :class="{'active': Number(currentIndex)==0}" @tap="clickTab($event)" data-index="0">
 			<view class="iconfont iconjs"></view><view class="aui-footer-text">API</view>
 		</view>
-		<view class="aui-footer-list" onclick="aui.openWin('demo/demo-index.html')">
+		<view class="aui-footer-list" :class="{'active': Number(currentIndex)==1}" @tap="clickTab($event)" data-index="1">
 			<view class="iconfont iconshilidaima"></view><view class="aui-footer-text">DEMO</view>
 		</view>
 	</view>
@@ -12,10 +12,27 @@
 <script>
 	export default {
 		name: 'aui-footer',
+		props: {
+			currentIndex: {
+				type: Number,
+				default: 0
+			}
+		},
 		data() {
 			return {
 				
 			};
+		},
+		created(){
+			console.log('a'+this.currentIndex);
+		},
+		methods: {
+			clickTab(e){
+				var _this = this;
+				// console.log('b'+e.currentTarget.dataset.index);
+				_this.currentIndex = e.currentTarget.dataset.index;
+				_this.$emit("tabBarTap", _this.currentIndex);				
+			}
 		}
 	}
 </script>

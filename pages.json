@@ -18,11 +18,34 @@
             "path" : "pages/API/plugs/dialog/dialog",
             "style" : {}
         }
+        ,{
+            "path" : "pages/demo/index/index",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		// "navigationBarTextStyle": "black",
 		// "navigationBarTitleText": "uni-app",
 		// "navigationBarBackgroundColor": "#F8F8F8",
 		// "backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#AAAAAA",
+		"selectedColor": "#197DE0",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/API/index/index",
+				"iconPath": "static/tab-home.png",
+				"selectedIconPath": "static/tab-home-current.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/demo/index/index",
+				"iconPath": "static/tab-cate.png",
+				"selectedIconPath": "static/tab-cate-current.png",
+				"text": "分类"
+			}
+		]
 	}
 }

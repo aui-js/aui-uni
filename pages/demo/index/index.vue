@@ -1,33 +1,14 @@
 <template>
 	<view class="content">
 		<!-- #ifndef MP -->
-		<aui-header title="aui-uni" :right="{use: true, click: openPopMenu}"></aui-header>
+		<aui-header title="实例" :right="{use: true, click: openPopMenu}"></aui-header>
 		<!-- #endif -->
 		<view class="aui-content">
 			<view class="aui-lists">
-				<view class="aui-list" @click.stop="openWin('../plugs/login/login')">
-					<view class="aui-list-left"><img src="@/static/index-0.png" alt="">设备</view>
-					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
-				</view>
-				<view class="aui-list" onclick="aui.openWin('html/events/event-index.html')">
-					<view class="aui-list-left"><img src="@/static/index-1.png" alt="">事件</view>
-					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
-				</view>
-				<view class="aui-list" @click.stop="openWin('../plugs/index/index')">
-					<view class="aui-list-left"><img src="@/static/index-2.png" alt="">组件</view>
-					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
-				</view>
-				<view class="aui-list" onclick="aui.openWin('html/address/address-index.html')">
-					<view class="aui-list-left"><img src="@/static/index-3.png" alt="">位置</view>
-					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
-				</view>
-				<view class="aui-list" onclick="aui.openWin('html/service/service-index.html')">
-					<view class="aui-list-left"><img src="@/static/index-4.png" alt="">客服</view>
-					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
-				</view>
+				
 			</view>
 		</view>
-		<!-- <aui-footer currentIndex="0" @tabBarTap="tabBarTap"></aui-footer> -->
+		<aui-footer currentIndex="1" @tabBarTap="tabBarTap"></aui-footer>
 		<aui-loading 
 			:show="auiLoading.show" 
 			:type="auiLoading.type" 
@@ -85,10 +66,10 @@
 				console.log(index);
 				switch (Number(index)){
 					case 0:
-						_this.openWin('/index/index');
+						_this.openWin('../../API/index/index');
 						break;
 					case 1:
-						_this.openWin('../../demo/index/index');
+						_this.openWin('demo/index/index');
 						break;
 					default:
 						break;
