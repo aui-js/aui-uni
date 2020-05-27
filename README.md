@@ -1,2 +1,2 @@
 # aui-uni
-aui框架uni-app版
+aui移动端UI组件库uni-app版
