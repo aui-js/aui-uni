@@ -27,7 +27,6 @@
 				</view>
 			</view>
 		</view>
-		<!-- <aui-footer currentIndex="0" @tabBarTap="tabBarTap"></aui-footer> -->
 		<aui-loading 
 			:show="auiLoading.show" 
 			:type="auiLoading.type" 
@@ -41,13 +40,11 @@
 <script>
 	import {aui} from '@/common/aui/js/aui.js';
 	import auiHeader from '@/components/aui-header/aui-header.vue';
-	import auiFooter from '@/components/aui-footer/aui-footer.vue';
 	import auiLoading from '@/components/aui-loading/aui-loading.vue';
 	export default {
 		components: {
 			auiLoading,
-			auiHeader,
-			auiFooter
+			auiHeader
 		},
 		data() {
 			return {
@@ -79,21 +76,7 @@
 			},
 			openPopMenu(){
 				alert('打开菜单')
-			},
-			tabBarTap(index){
-				var _this = this;
-				console.log(index);
-				switch (Number(index)){
-					case 0:
-						_this.openWin('/index/index');
-						break;
-					case 1:
-						_this.openWin('../../demo/index/index');
-						break;
-					default:
-						break;
-				}
-			},
+			}
 		}
 	}
 </script>
@@ -107,9 +90,9 @@
 		justify-content: center;
 	}
 	.aui-content{
-		height: calc(100vh - 55px);
+		height: calc(100vh - 50px);
 		/* #ifndef MP */
-		height: calc(100vh - 50px - 55px);
+		height: calc(100vh - 50px - 50px);
 		/* #endif */
 	}
 	.aui-list-left img{width: 18px; height: 18px; margin: -0 10px 0 0; display: inline-block; vertical-align: middle; position: relative; top: -1px;}

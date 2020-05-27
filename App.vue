@@ -22,5 +22,6 @@
 	uni-page-wrapper{
 		height: 100vh !important;
 	}
-	
+	uni-tabbar .uni-tabbar-border{background: rgba(100,100,100,.3) !important; transform: scaleY(.3);}
+	uni-tabbar .uni-tabbar__icon{width: 20px; height: 20px; margin-top: 6px;}
 </style>

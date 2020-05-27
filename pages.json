@@ -24,10 +24,10 @@
         }
     ],
 	"globalStyle": {
-		// "navigationBarTextStyle": "black",
-		// "navigationBarTitleText": "uni-app",
-		// "navigationBarBackgroundColor": "#F8F8F8",
-		// "backgroundColor": "#F8F8F8"
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {
 		"color": "#AAAAAA",
@@ -36,15 +36,15 @@
 		"backgroundColor": "#ffffff",
 		"list": [{
 				"pagePath": "pages/API/index/index",
-				"iconPath": "static/tab-home.png",
-				"selectedIconPath": "static/tab-home-current.png",
-				"text": "首页"
+				"iconPath": "static/tab-api.png",
+				"selectedIconPath": "static/tab-api-active.png",
+				"text": "API"
 			},
 			{
 				"pagePath": "pages/demo/index/index",
-				"iconPath": "static/tab-cate.png",
-				"selectedIconPath": "static/tab-cate-current.png",
-				"text": "分类"
+				"iconPath": "static/tab-demo.png",
+				"selectedIconPath": "static/tab-demo-active.png",
+				"text": "DEMO"
 			}
 		]
 	}
