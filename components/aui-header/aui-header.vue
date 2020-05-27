@@ -41,10 +41,10 @@
 			};
 		},
 		created(){
-			console.log(this.title);
+			//console.log(this.title);
 		},
 		onLoad() {
-			console.log(this.title);
+			//console.log(this.title);
 		},
 		methods: {
 			closeWin(){

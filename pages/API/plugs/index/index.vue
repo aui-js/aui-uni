@@ -21,7 +21,7 @@
 					<view class="aui-list-left">datepicker时间选择器</view>
 					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
 				</view>
-				<view class="aui-list" onclick="aui.openWin('dialog.html')">
+				<view class="aui-list" @click.stop="openWin('../dialog/dialog')">
 					<view class="aui-list-left">dialog 模态弹窗</view>
 					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
 				</view>

@@ -109,3 +109,31 @@
 	background: #197DE0;
 	color: #FFF;
 }
+
+/* 遮罩层样式 */
+.aui-mask{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.4);
+	-ms-animation: aui-fade-in .2s ease-out forwards;
+	-webkit-animation: aui-fade-in .2s ease-out forwards;
+	animation: aui-fade-in .2s ease-out forwards;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 998;
+}
+
+/* fade-in */
+@-ms-keyframes aui-fade-in{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}
+@-webkit-keyframes aui-fade-in{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}
+@keyframes aui-fade-in{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}
