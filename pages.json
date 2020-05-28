@@ -25,8 +25,8 @@
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
+		// "navigationBarTitleText": "uni-app",
 		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {
