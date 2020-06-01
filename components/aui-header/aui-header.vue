@@ -1,5 +1,5 @@
 <template name="aui-header">
-	<view class="aui-header">
+	<view class="aui-header" :style="{height: navigatorBarHeight + 'px'}">
 		<view class="aui-header-left" v-if="left.use" @click.stop="left.click"><view class="iconfont iconreturn"></view></view>
 		<view class="aui-header-title" style="left: 15px;">{{title}}</view>
 		<view class="aui-header-right" v-if="right.use" @click.stop="right.click"><view class="iconfont iconother"></view></view>
@@ -37,18 +37,32 @@
 		},
 		data() {
 			return {
-				
+				navigatorBarHeight: 44,
 			};
 		},
 		created(){
-			//console.log(this.title);
+			console.log(this.title);
+			this.getSystemStatusBarHeight();
 		},
 		onLoad() {
-			//console.log(this.title);
+			console.log(this.title);
+			this.getSystemStatusBarHeight();
 		},
 		methods: {
 			closeWin(){
 				aui.closeWin()
+			},
+			//获取系统状态栏高度
+			getSystemStatusBarHeight(){
+				var _this = this;
+				// #ifdef APP-PLUS
+				var height = plus.navigator.getStatusbarHeight();
+				_this.navigatorBarHeight = height + _this.navigatorBarHeight;
+				// #endif
+				// #ifdef H5
+				_this.navigatorBarHeight = _this.navigatorBarHeight;
+				// #endif
+				console.log(_this.navigatorBarHeight);
 			},
 		}
 	}
@@ -74,7 +88,12 @@
 		transform: skewX(45deg);
 		position: absolute;
 		left: -25px;
-		top: 0;
+		bottom: 0;
+		/* #ifdef APP-PLUS */
+		width: 150px;
+		height: 100%;
+		left: -40px;
+		/* #endif */
 	}
 	.aui-header-left{
 		width: 44px;

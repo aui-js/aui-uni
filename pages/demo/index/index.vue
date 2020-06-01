@@ -143,6 +143,9 @@
 		/* #ifndef MP */
 		height: calc(100vh - 50px - 50px);
 		/* #endif */
+		/* #ifdef APP-PLUS */
+		height: calc(100vh - 50px);
+		/* #endif */
 	}
 	.aui-list-left i{width: 30px; height: 100%; line-height: 53px; text-align: left; display: inline-block; vertical-align: top; position: relative;}
 </style>
