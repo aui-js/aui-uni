@@ -39,6 +39,8 @@
 			:styles="auiLoading.styles"
 			:theme="auiLoading.theme"
 		></aui-loading>
+		<!-- 简单调用 -->
+		<!-- <aui-loading :show="auiLoading.show" msg="加载中"></aui-loading> -->
 	</view>
 </template>
 
@@ -82,7 +84,7 @@
 				_this.auiLoading.show = true;
 				setTimeout(function(){
 					_this.auiLoading.show = false;
-				},3000000)
+				},3000)
 			},
 			headerHeight(e){
 				//console.log(e);
