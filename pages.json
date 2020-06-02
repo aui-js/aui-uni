@@ -25,11 +25,12 @@
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"navigationBarTitleText": "uni-app",
-		"backgroundColor": "#F8F8F8",
-		"navigationStyle": "custom"
-		
+		"navigationBarBackgroundColor": "#197DE0",
+		"navigationBarTitleText": "aui-uni",
+		// #ifndef MP
+		"navigationStyle": "custom",
+		// #endif
+		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {
 		"color": "#AAAAAA",

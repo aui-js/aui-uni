@@ -1,9 +1,9 @@
 <template>
 	<view class="content">
 		<!-- #ifndef MP -->
-		<aui-header title="实例" :right="{use: true, click: openPopMenu}"></aui-header>
+		<aui-header title="实例" :right="{use: true, click: openPopMenu}" @headerHeight="headerHeight"></aui-header>
 		<!-- #endif -->
-		<view class="aui-content">
+		<view class="aui-content" :style="{height: contentHeight}">
 			<view class="aui-lists">
 				<div class="aui-list" onclick="aui.openWin('sidemenu/index.html')">
 						<div class="aui-list-left"><i class="iconfont iconother" style="font-size: 30px; left: -5px; color: #F44336;"></i>侧滑菜单</div>
@@ -105,7 +105,7 @@
 					mask: false,
 					
 				},
-				title: 'Hello'
+				contentHeight: null
 			}
 		},
 		onShow() {
@@ -125,6 +125,13 @@
 			},
 			openPopMenu(){
 				alert('打开菜单')
+			},
+			headerHeight(e){
+				//console.log(e);
+				const { windowWidth, windowHeight } = uni.getSystemInfoSync();
+				// #ifdef APP-PLUS
+					this.contentHeight = windowHeight - e + 'px';				
+				// #endif
 			}
 		}
 	}
@@ -139,9 +146,11 @@
 		justify-content: center;
 	}
 	.aui-content{
-		height: calc(100vh - 50px);
-		/* #ifndef MP */
-		height: calc(100vh - 50px - 50px);
+		/* #ifdef H5 */
+		height: calc(100vh - 50px - 44px);
+		/* #endif */		
+		/* #ifdef MP */
+		height: 100vh;
 		/* #endif */
 		/* #ifdef APP-PLUS */
 		height: calc(100vh - 50px);

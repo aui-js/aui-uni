@@ -1,9 +1,9 @@
 <template>
 	<view class="content">
 		<!-- #ifndef MP -->
-		<aui-header title="组件" :left="{use: true, click: closeWin}"></aui-header>
+		<aui-header title="组件" :left="{use: true, click: closeWin}" @headerHeight="headerHeight"></aui-header>
 		<!-- #endif -->
-		<view class="aui-content">
+		<view class="aui-content" :style="{height: contentHeight}">
 			<view class="aui-lists">
 				<view class="aui-list" onclick="aui.openWin('actionmenu.html')">
 					<view class="aui-list-left">actionMenu 底部菜单</view>
@@ -83,7 +83,7 @@
 		},
 		data() {
 			return {
-				
+				contentHeight: null
 			}
 		},
 		methods: {
@@ -93,6 +93,13 @@
 			closeWin(){
 				aui.closeWin()
 			},
+			headerHeight(e){
+				//console.log(e);
+				const { windowWidth, windowHeight } = uni.getSystemInfoSync();
+				// #ifdef APP-PLUS
+					this.contentHeight = windowHeight - e + 'px';				
+				// #endif
+			}
 		}
 	}
 </script>

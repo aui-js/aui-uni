@@ -1,6 +1,6 @@
 <template>
 	<!-- 1、常用loading加载弹窗 -->
-	<view class="aui-loading aui-loading-ring" v-if="show && type == 1">
+	<view class="aui-loading aui-loading-ring" :class="{'aui-loading-ring-row': direction == 'row'}" v-if="show && type == 1">
 		<view class="aui-mask" v-if="mask"></view>
 		<view class="aui-loading-main">
 			<view class="aui-loading-animate">
@@ -43,7 +43,7 @@
 		</view>
 	</view>
 	<!-- 3、特殊风格loading加载弹窗 -> 四方块旋转 -->
-	<view class="aui-loading aui-loading-squarefour aui-loading-squarefour-style-1" v-else-if="show && type == 3">
+	<view class="aui-loading aui-loading-squarefour" :class="{'aui-loading-squarefour-style-1': theme==1, 'aui-loading-squarefour-style-2': theme==2}" v-else-if="show && type == 3">
 		<view class="aui-mask" v-if="mask"></view>
 		<view class="aui-loading-main" :style="{background: styles.background, zIndex: styles.zIndex}">
 			<view class="aui-loading-animate">
@@ -55,25 +55,25 @@
 			<view class="aui-loading-msg" v-if="msg" :style="{color: styles.color}">{{msg}}</view>
 		</view>'
 	</view>
-	<!-- 4、元素放大缩小动画(全屏首次加载过度动画) -->
+	<!-- 4、三平行四边形放大缩小(全屏首次加载过度动画) -->
 	<view class="aui-loading aui-loading-dots" v-else-if="show && type == 4">
 		<view class="aui-mask" v-if="mask"></view>
 		<view class="aui-loading-main">
 			<view class="aui-loading-dot-items">
-				<view class="aui-loading-dot-item" id="dot_one"></view>
-				<view class="aui-loading-dot-item" id="dot_two"></view>
-				<view class="aui-loading-dot-item" id="dot_three"></view>
+				<view class="aui-loading-dot-item dot_one"></view>
+				<view class="aui-loading-dot-item dot_two"></view>
+				<view class="aui-loading-dot-item dot_three"></view>
 			</view>
 		</view>
 	</view>
-	<!-- 5、三圆点背景过度动画(全屏首次加载过度动画) -->
+	<!-- 5、三圆点背景过度(全屏首次加载过度动画) -->
 	<view class="aui-loading aui-loading-dots-opacity" v-else-if="show && type == 5">
 		<view class="aui-mask" v-if="mask"></view>
 		<view class="aui-loading-main">
 			<view class="aui-loading-dot-items">
-				<view class="aui-loading-dot-item" id="dot_one"></view>
-				<view class="aui-loading-dot-item" id="dot_two"></view>
-				<view class="aui-loading-dot-item" id="dot_three"></view>
+				<view class="aui-loading-dot-item dot_one"></view>
+				<view class="aui-loading-dot-item dot_two"></view>
+				<view class="aui-loading-dot-item dot_three"></view>
 			</view>
 		</view>
 	</view>
@@ -103,7 +103,7 @@
 				type: String,
 				default: 'col'
 			},
-			theme: {
+			theme: { //type==3时生效
 				type: Number,
 				default: 1
 			},
@@ -310,6 +310,26 @@
 		-webkit-animation-delay: 0.6s;
 		animation-delay: 0.6s;
 	}
+	
+	.aui-loading.aui-loading-ring.aui-loading-ring-row .aui-loading-main{
+		display: block;
+		min-height: 40px;
+		padding: 10px 15px;
+		border-radius: 6px;		
+	}
+	.aui-loading.aui-loading-ring.aui-loading-ring-row .aui-loading-animate{
+		display: inline-block;
+		vertical-align: top;
+	}
+	.aui-loading.aui-loading-ring.aui-loading-ring-row .aui-loading-msg{
+		width: auto;
+		height: 25px;
+		line-height: 25px;
+		top: 0;
+		margin-left: 10px;
+		display: inline-block;
+		vertical-align: top;
+	}
 	/* loading-button 样式设置 */
 	.aui-loading.aui-loading-button{
 		width: 100%;
@@ -498,7 +518,7 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		z-index: 999;
+		z-index: 996;
 		background: #FFF;
 		-ms-animation: aui-fade-in .2s ease-out forwards;
 		-webkit-animation: aui-fade-in .2s ease-out forwards;
@@ -557,14 +577,17 @@
 	}
 	.aui-loading.aui-loading-squarefour .aui-loading-msg{
 		width: 100%;
-		height: 35px;
-		line-height: 40px;
+		height: 50px;
+		line-height: 60px;
 		font-size: 13px;
 		color: #909090;
 		text-align: center;
 		position: absolute;
 		top: 50%;
 		left: 0;
+	}
+	.aui-loading.aui-loading-squarefour.aui-loading-squarefour-style-2{
+		z-index: 996;
 	}
 	.aui-loading.aui-loading-squarefour.aui-loading-squarefour-style-1{
 		z-index: 999;
@@ -577,7 +600,7 @@
 		background: rgba(0,0,0,.8);
 		border-radius: 10px;
 		box-shadow: 0 0 1px rgba(100,100,100,.3) inset;
-		padding: 12px;
+		padding: 15px;
 		box-sizing: border-box;
 		top: 50%;
 		left: 50%;
@@ -603,22 +626,22 @@
 		top: 6px;
 		left: 0;
 	}
-	/* 圆点放大缩小动画(全屏首次加载过度动画) */
+	/* 三平行四边形放大缩小动画放大缩小动画(全屏首次加载过度动画) */
 	.aui-loading.aui-loading-dots{background-color: #FFF; height: 100%; width: 100%; position: fixed; z-index: 996; margin-top: 0px; top: 0px;}
 	.aui-loading.aui-loading-dots .aui-loading-main{width: 100%;height: 100%;position: relative;}
 	.aui-loading.aui-loading-dots .aui-loading-dot-items {position: absolute;left: 50%;top: 50%;height: 60px;width: 120px; text-align: center; margin-top: -30px;margin-left: -60px;}
 	.aui-loading.aui-loading-dots .aui-loading-dot-item{width: 10px;height: 10px; background-color: #ec2b45; display: inline-block; margin-right: 6px; margin-top: 20px; border-radius: 2px; -webkit-transform: scale(1) skewX(-30deg); transform: scale(1) skewX(-30deg);}
-	.aui-loading.aui-loading-dots #dot_one {-webkit-animation: dot_one 1.5s infinite; animation: dot_one 1.5s infinite;}
-	.aui-loading.aui-loading-dots #dot_two {-webkit-animation: dot_two 1.5s infinite; animation: dot_two 1.5s infinite; -webkit-animation-delay: 0.2s; animation-delay: 0.2s;}
-	.aui-loading.aui-loading-dots #dot_three {margin-right: 0; -webkit-animation: dot_three 1.5s infinite; animation: dot_three 1.5s infinite; -webkit-animation-delay: 0.4s; animation-delay: 0.4s;}
+	.aui-loading.aui-loading-dots .dot_one {background: #197DE0; -webkit-animation: dot_one 1.5s infinite; animation: dot_one 1.5s infinite;}
+	.aui-loading.aui-loading-dots .dot_two {background: #2CB0B2; -webkit-animation: dot_two 1.5s infinite; animation: dot_two 1.5s infinite; -webkit-animation-delay: 0.2s; animation-delay: 0.2s;}
+	.aui-loading.aui-loading-dots .dot_three {background: #4CD964; margin-right: 0; -webkit-animation: dot_three 1.5s infinite; animation: dot_three 1.5s infinite; -webkit-animation-delay: 0.4s; animation-delay: 0.4s;}
 	/* 圆点背景过度动画-微信小程序效果(全屏首次加载过度动画) */
 	.aui-loading.aui-loading-dots-opacity{background-color: #FFF; height: 100%; width: 100%; position: fixed; z-index: 996; margin-top: 0px; top: 0px;}
 	.aui-loading.aui-loading-dots-opacity .aui-loading-main{width: 100%;height: 100%;position: relative;}
 	.aui-loading.aui-loading-dots-opacity .aui-loading-dot-items {position: absolute;left: 50%;top: 50%;height: 60px;width: 80px; text-align: center; margin-top: -30px;margin-left: -40px;}
-	.aui-loading.aui-loading-dots-opacity .aui-loading-dot-item{width: 10px;height: 10px; opacity: 1; background-color: #ec2b45; display: inline-block; margin-right: 10px;margin-top: 30px;-moz-border-radius: 50% 50% 50% 50%;-webkit-border-radius: 50% 50% 50% 50%;border-radius: 50% 50% 50% 50%;}
-	.aui-loading.aui-loading-dots-opacity #dot_one {-webkit-animation: dot-opacity 1.5s infinite; animation: dot-opacity 1.5s infinite;}
-	.aui-loading.aui-loading-dots-opacity #dot_two {-webkit-animation: dot-opacity 1.5s infinite; animation: dot-opacity 1.5s infinite; -webkit-animation-delay: 0.25s; animation-delay: 0.25s;}
-	.aui-loading.aui-loading-dots-opacity #dot_three {margin-right: 0; -webkit-animation: dot-opacity 1.5s infinite; animation: dot-opacity 1.5s infinite; -webkit-animation-delay: 0.5s; animation-delay: 0.5s;}
+	.aui-loading.aui-loading-dots-opacity .aui-loading-dot-item{width: 9px;height: 9px; opacity: 1; background-color: #ec2b45; display: inline-block; margin-right: 8px;margin-top: 30px;-moz-border-radius: 50% 50% 50% 50%;-webkit-border-radius: 50% 50% 50% 50%;border-radius: 50% 50% 50% 50%;}
+	.aui-loading.aui-loading-dots-opacity .dot_one {background: #197DE0;-webkit-animation: dot-opacity 1.5s infinite; animation: dot-opacity 1.5s infinite;}
+	.aui-loading.aui-loading-dots-opacity .dot_two {background: #2CB0B2;-webkit-animation: dot-opacity 1.5s infinite; animation: dot-opacity 1.5s infinite; -webkit-animation-delay: 0.25s; animation-delay: 0.25s;}
+	.aui-loading.aui-loading-dots-opacity .dot_three {background: #4CD964;margin-right: 0; -webkit-animation: dot-opacity 1.5s infinite; animation: dot-opacity 1.5s infinite; -webkit-animation-delay: 0.5s; animation-delay: 0.5s;}
 	@-webkit-keyframes dot-opacity {
 		50% {opacity: 0.1; }
 	}

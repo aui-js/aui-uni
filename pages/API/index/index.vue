@@ -1,28 +1,68 @@
 <template>
 	<view class="content">
 		<!-- #ifndef MP -->
-		<aui-header title="aui-uni" :right="{use: true, click: openPopMenu}"></aui-header>
+		<aui-header title="aui-uni" :right="{use: true, click: openPopMenu}" @headerHeight="headerHeight"></aui-header>
 		<!-- #endif -->
-		<view class="aui-content">
+		<view class="aui-content" :style="{height: contentHeight}">
 			<view class="aui-lists">
 				<view class="aui-list" @click.stop="openWin('../plugs/login/login')">
-					<view class="aui-list-left"><img src="@/static/index-0.png" alt="">设备</view>
+					<view class="aui-list-left">
+						<!-- #ifdef APP-PLUS -->
+						<img src="static/index-0.png" alt="">
+						<!-- #endif -->
+						<!-- #ifdef MP || H5 -->
+						<img src="@/static/index-0.png" alt="">
+						<!-- #endif -->
+						设备
+					</view>
 					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
 				</view>
 				<view class="aui-list" onclick="aui.openWin('html/events/event-index.html')">
-					<view class="aui-list-left"><img src="@/static/index-1.png" alt="">事件</view>
+					<view class="aui-list-left">
+						<!-- #ifdef APP-PLUS -->
+						<img src="static/index-1.png" alt="">
+						<!-- #endif -->
+						<!-- #ifdef MP || H5 -->
+						<img src="@/static/index-1.png" alt="">
+						<!-- #endif -->
+						事件
+					</view>
 					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
 				</view>
 				<view class="aui-list" @click.stop="openWin('../plugs/index/index')">
-					<view class="aui-list-left"><img src="@/static/index-2.png" alt="">组件</view>
+					<view class="aui-list-left">
+						<!-- #ifdef APP-PLUS -->
+						<img src="static/index-2.png" alt="">
+						<!-- #endif -->
+						<!-- #ifdef MP || H5 -->
+						<img src="@/static/index-2.png" alt="">
+						<!-- #endif -->
+						组件
+					</view>
 					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
 				</view>
 				<view class="aui-list" onclick="aui.openWin('html/address/address-index.html')">
-					<view class="aui-list-left"><img src="@/static/index-3.png" alt="">位置</view>
+					<view class="aui-list-left">
+						<!-- #ifdef APP-PLUS -->
+						<img src="static/index-3.png" alt="">
+						<!-- #endif -->
+						<!-- #ifdef MP || H5 -->
+						<img src="@/static/index-3.png" alt="">
+						<!-- #endif -->
+						位置
+					</view>
 					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
 				</view>
 				<view class="aui-list" onclick="aui.openWin('html/service/service-index.html')">
-					<view class="aui-list-left"><img src="@/static/index-4.png" alt="">客服</view>
+					<view class="aui-list-left">
+						<!-- #ifdef APP-PLUS -->
+						<img src="static/index-4.png" alt="">
+						<!-- #endif -->
+						<!-- #ifdef MP || H5 -->
+						<img src="@/static/index-4.png" alt="">
+						<!-- #endif -->
+						客服
+					</view>
 					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
 				</view>
 			</view>
@@ -56,7 +96,7 @@
 					mask: false,
 					
 				},
-				title: 'Hello'
+				contentHeight: null
 			}
 		},
 		onShow() {
@@ -76,6 +116,13 @@
 			},
 			openPopMenu(){
 				alert('打开菜单')
+			},
+			headerHeight(e){
+				//console.log(e);
+				const { windowWidth, windowHeight } = uni.getSystemInfoSync();
+				// #ifdef APP-PLUS
+					this.contentHeight = windowHeight - e + 'px';				
+				// #endif
 			}
 		}
 	}
@@ -90,12 +137,14 @@
 		justify-content: center;
 	}
 	.aui-content{
-		height: calc(100vh - 50px);
-		/* #ifndef MP */
-		height: calc(100vh - 50px - 50px);
+		/* #ifdef H5 */
+		height: calc(100vh - 50px - 44px);
+		/* #endif */		
+		/* #ifdef MP */
+		height: 100vh;
 		/* #endif */
 		/* #ifdef APP-PLUS */
-		height: calc(100vh - 50px);
+		height: calc(100vh - 50px - 26px);
 		/* #endif */
 	}
 	.aui-list-left img{width: 18px; height: 18px; margin: -0 10px 0 0; display: inline-block; vertical-align: middle; position: relative; top: -1px;}

@@ -1,9 +1,9 @@
 <template>
 	<view class="content">
 		<!-- #ifndef MP -->
-		<aui-header title="dialog模态弹窗" :left="{use: true, click: closeWin}"></aui-header>
+		<aui-header title="dialog模态弹窗" :left="{use: true, click: closeWin}" @headerHeight="headerHeight"></aui-header>
 		<!-- #endif -->
-		<view class="aui-content">
+		<view class="aui-content" :style="{height: contentHeight}">
 			<view class="aui-list-title">1、大按钮风格</view>
 			<view class="aui-btn aui-btn-blue dialog-0">alert单按钮提醒弹窗</view>
 			<view class="aui-btn aui-btn-blue dialog-1">confirm双按钮提醒弹窗</view>
@@ -30,6 +30,7 @@
 		},
 		data() {
 			return {
+				contentHeight: null
 			}
 		},
 		methods: {
@@ -39,6 +40,13 @@
 			closeWin(){
 				aui.closeWin()
 			},
+			headerHeight(e){
+				//console.log(e);
+				const { windowWidth, windowHeight } = uni.getSystemInfoSync();
+				// #ifdef APP-PLUS
+					this.contentHeight = windowHeight - e + 'px';				
+				// #endif
+			}
 		}
 	}
 </script>

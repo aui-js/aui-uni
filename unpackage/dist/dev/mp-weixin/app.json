@@ -1,0 +1,38 @@
+{
+    "pages": [
+        "pages/API/index/index",
+        "pages/API/plugs/index/index",
+        "pages/API/plugs/loading/loading",
+        "pages/API/plugs/dialog/dialog",
+        "pages/demo/index/index"
+    ],
+    "subPackages": [],
+    "window": {
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "#197DE0",
+        "navigationBarTitleText": "aui-uni",
+        "backgroundColor": "#F8F8F8"
+    },
+    "tabBar": {
+        "color": "#AAAAAA",
+        "selectedColor": "#197DE0",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/API/index/index",
+                "iconPath": "static/tab-api.png",
+                "selectedIconPath": "static/tab-api-active.png",
+                "text": "API"
+            },
+            {
+                "pagePath": "pages/demo/index/index",
+                "iconPath": "static/tab-demo.png",
+                "selectedIconPath": "static/tab-demo-active.png",
+                "text": "DEMO"
+            }
+        ]
+    },
+    "usingComponents": {},
+    "sitemapLocation": "sitemap95.json"
+}

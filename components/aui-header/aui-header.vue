@@ -37,15 +37,16 @@
 		},
 		data() {
 			return {
-				navigatorBarHeight: 44,
+				navigatorBarHeight: 44, //头部总高度
 			};
 		},
 		created(){
-			console.log(this.title);
+			//console.log(this.title);
 			this.getSystemStatusBarHeight();
+			this.$emit("headerHeight", this.navigatorBarHeight);
 		},
 		onLoad() {
-			console.log(this.title);
+			//console.log(this.title);
 			this.getSystemStatusBarHeight();
 		},
 		methods: {
@@ -62,7 +63,7 @@
 				// #ifdef H5
 				_this.navigatorBarHeight = _this.navigatorBarHeight;
 				// #endif
-				console.log(_this.navigatorBarHeight);
+				//console.log(_this.navigatorBarHeight);
 			},
 		}
 	}
@@ -71,7 +72,7 @@
 <style>
 	.aui-header{
 		width: 100vw;
-		height: 50px;
+		height: 44px;
 		background: linear-gradient(to right, #197DE0, #73B9EC);
 		overflow: hidden;
 		position: relative;
@@ -82,7 +83,7 @@
 	.aui-header:before{
 		content: '';
 		width: 100px;
-		height: 50px;	
+		height: 44px;	
 		background: linear-gradient(to right, #FF5555, #FF7777);
 		opacity: .9;
 		transform: skewX(45deg);
@@ -90,15 +91,16 @@
 		left: -25px;
 		bottom: 0;
 		/* #ifdef APP-PLUS */
-		width: 150px;
+		width: 120px;
 		height: 100%;
 		left: -40px;
+		transform: skewX(30deg);
 		/* #endif */
 	}
 	.aui-header-left{
 		width: 44px;
-		height: 50px;
-		line-height: 50px;
+		height: 44px;
+		line-height: 44px;
 		text-align: center;
 		position: absolute;
 		bottom: 0;
@@ -110,8 +112,8 @@
 		color: #FFF;
 	}
 	.aui-header-title{
-		height: 50px;
-		line-height: 50px;
+		height: 44px;
+		line-height: 44px;
 		color: #FFF;
 		font-size: 18px;
 		text-align: center;
@@ -125,8 +127,8 @@
 	}
 	.aui-header-right{
 		width: 44px;
-		height: 50px;
-		line-height: 50px;
+		height: 44px;
+		line-height: 44px;
 		text-align: center;
 		position: absolute;
 		bottom: 0;
