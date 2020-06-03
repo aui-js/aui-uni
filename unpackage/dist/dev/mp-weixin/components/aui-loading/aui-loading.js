@@ -194,36 +194,31 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
 var _default2 =
 {
   name: "aui-loading",
   props: {
-    show: {
-      type: Boolean,
-      default: false },
-
-    type: {
+    type: { //默认圆环风格(<1>、1:toast圆环风格，<2>、2:点击按钮后在按钮内显示加载动画) <3>、3:四方块水平方向旋转，
       type: Number,
       default: 1 },
 
-    msg: {
+    msg: { //描述内容
       type: String,
       default: '' },
 
-    mask: {
+    mask: { //是否显示遮罩，默认false
       type: Boolean,
       default: false },
 
-    direction: {
+    direction: { //横向("row")或纵向("col")控制，默认纵向
       type: String,
       default: 'col' },
 
-    theme: { //type==3时生效
+    theme: { //控制风格 type==3时生效
       type: Number,
       default: 1 },
 
-    styles: {
+    styles: { //样式
       type: Object,
       default: function _default() {
         return {
@@ -236,13 +231,30 @@ var _default2 =
 
 
   data: function data() {
-    return {};
-
-
+    return {
+      SHOW: false //是否显示
+    };
   },
   created: function created() {
     //console.log(this.styles);
-  } };exports.default = _default2;
+  },
+  methods: {
+    //显示
+    show: function show() {
+      var _this = this;
+      return new Promise(function (resolve, reject) {
+        _this.SHOW = true;
+        resolve();
+      });
+    },
+    //隐藏
+    hide: function hide() {
+      var _this = this;
+      return new Promise(function (resolve, reject) {
+        _this.SHOW = false;
+        resolve();
+      });
+    } } };exports.default = _default2;
 
 /***/ }),
 

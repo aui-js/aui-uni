@@ -4,6 +4,7 @@
     "pages/API/plugs/index/index",
     "pages/API/plugs/loading/loading",
     "pages/API/plugs/dialog/dialog",
+    "pages/API/plugs/toast/toast",
     "pages/demo/index/index"
   ],
   "subPackages": [],

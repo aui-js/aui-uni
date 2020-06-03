@@ -25,6 +25,12 @@
 			}
         }
         ,{
+            "path" : "pages/API/plugs/toast/toast",
+            "style" : {
+				"navigationBarTitleText": "toast消息提示弹窗"
+			}
+        }
+        ,{
             "path" : "pages/demo/index/index",
             "style" : {
 				"navigationBarTitleText": "实例"

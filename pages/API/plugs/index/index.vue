@@ -61,7 +61,7 @@
 					<view class="aui-list-left">sidemenu 侧滑菜单</view>
 					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
 				</view>
-				<view class="aui-list" onclick="aui.openWin('toast.html')">
+				<view class="aui-list" @click.stop="openWin('../toast/toast')">
 					<view class="aui-list-left">toast 消息提示</view>
 					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
 				</view>

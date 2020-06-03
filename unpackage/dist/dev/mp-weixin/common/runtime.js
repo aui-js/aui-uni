@@ -104,11 +104,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/aui-header/aui-header":1,"components/aui-loading/aui-loading":1};
+/******/ 		var cssChunks = {"components/aui-header/aui-header":1,"components/aui-loading/aui-loading":1,"components/aui-toast/aui-toast":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/aui-header/aui-header":"components/aui-header/aui-header","components/aui-loading/aui-loading":"components/aui-loading/aui-loading"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/aui-header/aui-header":"components/aui-header/aui-header","components/aui-loading/aui-loading":"components/aui-loading/aui-loading","components/aui-toast/aui-toast":"components/aui-toast/aui-toast"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

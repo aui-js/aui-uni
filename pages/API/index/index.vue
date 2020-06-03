@@ -7,10 +7,10 @@
 			<view class="aui-lists">
 				<view class="aui-list" @click.stop="openWin('../plugs/login/login')">
 					<view class="aui-list-left">
-						<!-- #ifdef APP-PLUS -->
+						<!-- #ifdef APP-PLUS || H5 -->
 						<img src="static/index-0.png" alt="">
 						<!-- #endif -->
-						<!-- #ifdef MP || H5 -->
+						<!-- #ifdef MP -->
 						<img src="@/static/index-0.png" alt="">
 						<!-- #endif -->
 						设备
@@ -19,10 +19,10 @@
 				</view>
 				<view class="aui-list" onclick="aui.openWin('html/events/event-index.html')">
 					<view class="aui-list-left">
-						<!-- #ifdef APP-PLUS -->
+						<!-- #ifdef APP-PLUS || H5 -->
 						<img src="static/index-1.png" alt="">
 						<!-- #endif -->
-						<!-- #ifdef MP || H5 -->
+						<!-- #ifdef MP -->
 						<img src="@/static/index-1.png" alt="">
 						<!-- #endif -->
 						事件
@@ -31,10 +31,10 @@
 				</view>
 				<view class="aui-list" @click.stop="openWin('../plugs/index/index')">
 					<view class="aui-list-left">
-						<!-- #ifdef APP-PLUS -->
+						<!-- #ifdef APP-PLUS || H5 -->
 						<img src="static/index-2.png" alt="">
 						<!-- #endif -->
-						<!-- #ifdef MP || H5 -->
+						<!-- #ifdef MP -->
 						<img src="@/static/index-2.png" alt="">
 						<!-- #endif -->
 						组件
@@ -43,10 +43,10 @@
 				</view>
 				<view class="aui-list" onclick="aui.openWin('html/address/address-index.html')">
 					<view class="aui-list-left">
-						<!-- #ifdef APP-PLUS -->
+						<!-- #ifdef APP-PLUS || H5 -->
 						<img src="static/index-3.png" alt="">
 						<!-- #endif -->
-						<!-- #ifdef MP || H5 -->
+						<!-- #ifdef MP -->
 						<img src="@/static/index-3.png" alt="">
 						<!-- #endif -->
 						位置
@@ -55,10 +55,10 @@
 				</view>
 				<view class="aui-list" onclick="aui.openWin('html/service/service-index.html')">
 					<view class="aui-list-left">
-						<!-- #ifdef APP-PLUS -->
+						<!-- #ifdef APP-PLUS || H5 -->
 						<img src="static/index-4.png" alt="">
 						<!-- #endif -->
-						<!-- #ifdef MP || H5 -->
+						<!-- #ifdef MP -->
 						<img src="@/static/index-4.png" alt="">
 						<!-- #endif -->
 						客服

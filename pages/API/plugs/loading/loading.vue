@@ -8,15 +8,12 @@
 			<view class="aui-btn aui-btn-blue" @click.stop="showload($event)" data-type="1">全屏默认配置加载动画</view>
 			<view class="aui-btn aui-btn-blue" @click.stop="showload($event)" data-type="1" data-direction="row">全屏水平布局加载动画</view>
 			<view class="aui-list-title">2、按钮内显示loading加载动画</view>
-			<view class="aui-btn aui-btn-blue" @click.stop="showload($event)" data-type="2">
+			<view class="aui-btn aui-btn-blue" @click.stop="showloadbutton($event)" data-type="2">
 				按钮加载动画
 				<aui-loading
-					v-if="auiLoading.type==2"
-					:show="auiLoading.show" 
-					:type="auiLoading.type" 
-					:direction="auiLoading.row" 
-					:msg="auiLoading.msg" 
-					:mask="auiLoading.mask"
+					ref="auiLoadingButton" 
+					:type="auiLoading.type"
+					:msg="auiLoading.msg"
 					:styles="{'color': '#FFFFFF', 'background': '#197DE0', 'borderRadius': '5px'}"
 				></aui-loading>
 			</view>
@@ -30,8 +27,7 @@
 			<view class="aui-btn aui-btn-blue" @click.stop="showload($event)" data-type="5">全屏加载动画</view>
 		</view>
 		<aui-loading
-			v-if="auiLoading.type!=2"
-			:show="auiLoading.show" 
+			ref="auiLoading"
 			:type="auiLoading.type" 
 			:msg="auiLoading.msg" 
 			:mask="auiLoading.mask"
@@ -56,7 +52,6 @@
 		data() {
 			return {
 				auiLoading: {
-					show: false,
 					type: 4,
 					msg: '加载中',
 					mask: false,
@@ -74,24 +69,36 @@
 			closeWin(){
 				aui.closeWin()
 			},
-			showload(e){
-				var _this = this;
-				_this.auiLoading.type = Number(e.currentTarget.dataset.type);
-				_this.auiLoading.direction = aui.isDefine(e.currentTarget.dataset.direction) ? e.currentTarget.dataset.direction : 'col';
-				e.currentTarget.dataset.style == "white" ? _this.auiLoading.styles = {background: "#FFF", color: "#909090"} : _this.auiLoading.styles = {};
-				_this.auiLoading.mask = aui.isDefine(e.currentTarget.dataset.mask) ? true : false;
-				_this.auiLoading.theme = aui.isDefine(e.currentTarget.dataset.theme) ? Number(e.currentTarget.dataset.theme) : 1;
-				_this.auiLoading.show = true;
-				setTimeout(function(){
-					_this.auiLoading.show = false;
-				},3000)
-			},
 			headerHeight(e){
 				//console.log(e);
 				const { windowWidth, windowHeight } = uni.getSystemInfoSync();
 				// #ifdef APP-PLUS
 					this.contentHeight = windowHeight - e + 'px';				
 				// #endif
+			},
+			// 显示loading加载弹窗
+			showload(e){
+				var _this = this;
+				_this.auiLoading.type = Number(e.currentTarget.dataset.type);
+				aui.isDefine(e.currentTarget.dataset.direction) ? _this.auiLoading.direction = e.currentTarget.dataset.direction : _this.auiLoading.direction = 'col';
+				e.currentTarget.dataset.style == "white" ? _this.auiLoading.styles = {background: "#FFF", color: "#909090"} : _this.auiLoading.styles = {};
+				aui.isDefine(e.currentTarget.dataset.mask) ? _this.auiLoading.mask = true : _this.auiLoading.mask = false;
+				aui.isDefine(e.currentTarget.dataset.theme) ? _this.auiLoading.theme = Number(e.currentTarget.dataset.theme) : _this.auiLoading.theme = 1;
+				_this.$refs.auiLoading.show(); //显示loading				
+				var Timer = setTimeout(function(){
+					clearTimeout(Timer)
+					_this.$refs.auiLoading.hide(); //隐藏loading
+				},2000)
+			},
+			// 按钮内显示loading加载动画
+			showloadbutton(e){
+				var _this = this;
+				_this.auiLoading.type = Number(e.currentTarget.dataset.type);
+				_this.$refs.auiLoadingButton.show(); //显示loading				
+				var Timer = setTimeout(function(){
+					clearTimeout(Timer)
+					_this.$refs.auiLoadingButton.hide(); //隐藏loading
+				},2000)
 			}
 		}
 	}

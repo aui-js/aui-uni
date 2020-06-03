@@ -1,6 +1,6 @@
 <template>
 	<!-- 1、常用loading加载弹窗 -->
-	<view class="aui-loading aui-loading-ring" :class="{'aui-loading-ring-row': direction == 'row'}" v-if="show && type == 1">
+	<view class="aui-loading aui-loading-ring" :class="{'aui-loading-ring-row': direction == 'row'}" v-if="SHOW && type == 1">
 		<view class="aui-mask" v-if="mask"></view>
 		<view class="aui-loading-main">
 			<view class="aui-loading-animate">
@@ -21,7 +21,7 @@
 		</view>
 	</view>
 	<!-- 2、按钮内显示loading加载动画 -->
-	<view class="aui-loading aui-loading-button" v-else-if="show && type == 2">
+	<view class="aui-loading aui-loading-button" v-else-if="SHOW && type == 2">
 		<view class="aui-loading-main" :style="{background: styles.background, borderRadius: styles.borderRadius, zIndex: styles.zIndex}">
 			<view class="aui-loading-warp">
 				<view class="aui-loading-animate">
@@ -43,7 +43,7 @@
 		</view>
 	</view>
 	<!-- 3、特殊风格loading加载弹窗 -> 四方块旋转 -->
-	<view class="aui-loading aui-loading-squarefour" :class="{'aui-loading-squarefour-style-1': theme==1, 'aui-loading-squarefour-style-2': theme==2}" v-else-if="show && type == 3">
+	<view class="aui-loading aui-loading-squarefour" :class="{'aui-loading-squarefour-style-1': theme==1, 'aui-loading-squarefour-style-2': theme==2}" v-else-if="SHOW && type == 3">
 		<view class="aui-mask" v-if="mask"></view>
 		<view class="aui-loading-main" :style="{background: styles.background, zIndex: styles.zIndex}">
 			<view class="aui-loading-animate">
@@ -53,10 +53,10 @@
 				<view class="span4"></view>
 			</view>
 			<view class="aui-loading-msg" v-if="msg" :style="{color: styles.color}">{{msg}}</view>
-		</view>'
+		</view>
 	</view>
 	<!-- 4、三平行四边形放大缩小(全屏首次加载过度动画) -->
-	<view class="aui-loading aui-loading-dots" v-else-if="show && type == 4">
+	<view class="aui-loading aui-loading-dots" v-else-if="SHOW && type == 4">
 		<view class="aui-mask" v-if="mask"></view>
 		<view class="aui-loading-main">
 			<view class="aui-loading-dot-items">
@@ -67,7 +67,7 @@
 		</view>
 	</view>
 	<!-- 5、三圆点背景过度(全屏首次加载过度动画) -->
-	<view class="aui-loading aui-loading-dots-opacity" v-else-if="show && type == 5">
+	<view class="aui-loading aui-loading-dots-opacity" v-else-if="SHOW && type == 5">
 		<view class="aui-mask" v-if="mask"></view>
 		<view class="aui-loading-main">
 			<view class="aui-loading-dot-items">
@@ -78,36 +78,31 @@
 		</view>
 	</view>
 </template>
-
 <script>
 	export default {
 		name: "aui-loading",
 		props: {
-			show: {
-				type: Boolean,
-				default: false
-			},
-			type: {
+			type: { //默认圆环风格(<1>、1:toast圆环风格，<2>、2:点击按钮后在按钮内显示加载动画) <3>、3:四方块水平方向旋转，
 				type: Number,
 				default: 1
 			},
-			msg: {
+			msg: { //描述内容
 				type: String,
 				default: ''
 			},
-			mask: {
+			mask: { //是否显示遮罩，默认false
 				type: Boolean,
 				default: false
 			},
-			direction: {
+			direction: { //横向("row")或纵向("col")控制，默认纵向
 				type: String,
 				default: 'col'
 			},
-			theme: { //type==3时生效
+			theme: { //控制风格 type==3时生效
 				type: Number,
 				default: 1
 			},
-			styles: {
+			styles: { //样式
 				type: Object,
 				default () {
 					return {
@@ -121,12 +116,30 @@
 		},
 		data() {
 			return {
-				
+				SHOW: false, //是否显示
 			};
 		},
 		created(){
 			//console.log(this.styles);
 		},
+		methods:{
+			//显示
+			show(){
+				var _this = this;
+				return new Promise(function(resolve, reject){
+					_this.SHOW = true;
+					resolve();
+				});
+			},
+			//隐藏
+			hide(){
+				var _this = this;
+				return new Promise(function(resolve, reject){
+					_this.SHOW = false;
+					resolve();
+				});
+			},
+		}
 	}
 </script>
 
