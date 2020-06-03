@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "dialog模态弹窗",
   "usingComponents": {
     "aui-header": "/components/aui-header/aui-header"
   }

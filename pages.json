@@ -3,24 +3,32 @@
 		{
 			"path": "pages/API/index/index",
 			"style": {
-				// "navigationBarTitleText": "aui-uni"
+				"navigationBarTitleText": "aui"
 			}
 		}
         ,{
             "path" : "pages/API/plugs/index/index",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "组件"
+			}
         }
         ,{
             "path" : "pages/API/plugs/loading/loading",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "loading加载弹窗"
+			}
         }
         ,{
             "path" : "pages/API/plugs/dialog/dialog",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "dialog模态弹窗"
+			}
         }
         ,{
             "path" : "pages/demo/index/index",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "实例"
+			}
         }
     ],
 	"globalStyle": {

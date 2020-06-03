@@ -219,7 +219,7 @@ var _default2 =
       type: String,
       default: 'col' },
 
-    theme: {
+    theme: { //type==3时生效
       type: Number,
       default: 1 },
 

@@ -187,6 +187,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
 var _aui = __webpack_require__(/*! @/common/aui/js/aui.js */ 22); //
 //
 //
@@ -226,11 +233,15 @@ var _aui = __webpack_require__(/*! @/common/aui/js/aui.js */ 22); //
 //
 //
 //
-var auiHeader = function auiHeader() {__webpack_require__.e(/*! require.ensure | components/aui-header/aui-header */ "components/aui-header/aui-header").then((function () {return resolve(__webpack_require__(/*! @/components/aui-header/aui-header.vue */ 60));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiLoading = function auiLoading() {__webpack_require__.e(/*! require.ensure | components/aui-loading/aui-loading */ "components/aui-loading/aui-loading").then((function () {return resolve(__webpack_require__(/*! @/components/aui-loading/aui-loading.vue */ 53));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { auiLoading: auiLoading, auiHeader: auiHeader }, data: function data() {return { auiLoading: { show: false, type: 4, msg: '加载中', mask: false, direction: 'col' }, contentHeight: null };}, methods: { openWin: function openWin(url, opts) {_aui.aui.openWin(url, opts);}, closeWin: function closeWin() {_aui.aui.closeWin();}, showload: function showload(e) {var _this = this;_this.auiLoading.type = Number(e.currentTarget.dataset.type);_this.auiLoading.direction = e.currentTarget.dataset.direction ? e.currentTarget.dataset.direction : 'col';_this.auiLoading.show = true;setTimeout(function () {_this.auiLoading.show = false;}, 3000000);}, headerHeight: function headerHeight(e) {//console.log(e);
-      var _uni$getSystemInfoSyn = uni.getSystemInfoSync(),windowWidth = _uni$getSystemInfoSyn.windowWidth,windowHeight = _uni$getSystemInfoSyn.windowHeight;
-
-
-    } } };exports.default = _default;
+//
+//
+//
+//
+//
+//
+//
+var auiHeader = function auiHeader() {__webpack_require__.e(/*! require.ensure | components/aui-header/aui-header */ "components/aui-header/aui-header").then((function () {return resolve(__webpack_require__(/*! @/components/aui-header/aui-header.vue */ 60));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiLoading = function auiLoading() {__webpack_require__.e(/*! require.ensure | components/aui-loading/aui-loading */ "components/aui-loading/aui-loading").then((function () {return resolve(__webpack_require__(/*! @/components/aui-loading/aui-loading.vue */ 53));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { auiLoading: auiLoading, auiHeader: auiHeader }, data: function data() {return { auiLoading: { show: false, type: 4, msg: '加载中', mask: false, direction: 'col', styles: {}, theme: 1 }, contentHeight: null };}, methods: { openWin: function openWin(url, opts) {_aui.aui.openWin(url, opts);}, closeWin: function closeWin() {_aui.aui.closeWin();}, showload: function showload(e) {var _this = this;_this.auiLoading.type = Number(e.currentTarget.dataset.type);_this.auiLoading.direction = _aui.aui.isDefine(e.currentTarget.dataset.direction) ? e.currentTarget.dataset.direction : 'col';e.currentTarget.dataset.style == "white" ? _this.auiLoading.styles = { background: "#FFF", color: "#909090" } : _this.auiLoading.styles = {};_this.auiLoading.mask = _aui.aui.isDefine(e.currentTarget.dataset.mask) ? true : false;_this.auiLoading.theme = _aui.aui.isDefine(e.currentTarget.dataset.theme) ? Number(e.currentTarget.dataset.theme) : 1;_this.auiLoading.show = true;setTimeout(function () {_this.auiLoading.show = false;}, 3000);}, headerHeight: function headerHeight(e) {//console.log(e);
+      var _uni$getSystemInfoSyn = uni.getSystemInfoSync(),windowWidth = _uni$getSystemInfoSyn.windowWidth,windowHeight = _uni$getSystemInfoSyn.windowHeight;} } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

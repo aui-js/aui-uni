@@ -22,7 +22,7 @@
 			</view>
 			<view class="aui-list-title">3、四方块旋转动画</view>
 			<view class="aui-btn aui-btn-blue" @click.stop="showload($event)" data-type="3">全屏小窗加载动画（默认配置dark风格）</view>
-			<view class="aui-btn aui-btn-blue" @click.stop="showload($event)" data-type="3" data-mask="true" data-styles="{'background': '#FFF', 'color': '#909090'}">全屏小窗加载动画（light风格）</view>
+			<view class="aui-btn aui-btn-blue" @click.stop="showload($event)" data-type="3" data-style="white" data-mask="true">全屏小窗加载动画（light风格）</view>
 			<view class="aui-btn aui-btn-blue" @click.stop="showload($event)" data-type="3" data-theme="2">全屏大窗加载动画</view>
 			<view class="aui-list-title">4、三平行四边形放大缩小(全屏首次加载过度动画)</view>
 			<view class="aui-btn aui-btn-blue" @click.stop="showload($event)" data-type="4">全屏加载动画</view>
@@ -78,7 +78,7 @@
 				var _this = this;
 				_this.auiLoading.type = Number(e.currentTarget.dataset.type);
 				_this.auiLoading.direction = aui.isDefine(e.currentTarget.dataset.direction) ? e.currentTarget.dataset.direction : 'col';
-				_this.auiLoading.styles = eval('(' + e.currentTarget.dataset.styles + ')') ? eval('(' + e.currentTarget.dataset.styles + ')') : {};
+				e.currentTarget.dataset.style == "white" ? _this.auiLoading.styles = {background: "#FFF", color: "#909090"} : _this.auiLoading.styles = {};
 				_this.auiLoading.mask = aui.isDefine(e.currentTarget.dataset.mask) ? true : false;
 				_this.auiLoading.theme = aui.isDefine(e.currentTarget.dataset.theme) ? Number(e.currentTarget.dataset.theme) : 1;
 				_this.auiLoading.show = true;
