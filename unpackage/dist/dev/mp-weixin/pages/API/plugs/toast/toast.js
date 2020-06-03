@@ -203,7 +203,7 @@ var auiHeader = function auiHeader() {__webpack_require__.e(/*! require.ensure |
       var _this = this;
       _aui.aui.isDefine(e.currentTarget.dataset.msg) ? _this.auiToast.msg = e.currentTarget.dataset.msg : _this.auiToast.msg = '网络连接错误，请稍后再试';
       _aui.aui.isDefine(e.currentTarget.dataset.icon) ? _this.auiToast.icon = e.currentTarget.dataset.icon : _this.auiToast.icon = '';
-      _aui.aui.isDefine(e.currentTarget.dataset.location) ? _this.auiToast.location = e.currentTarget.dataset.location : _this.auiToast.location = 'middle';
+      _aui.aui.isDefine(e.currentTarget.dataset.location) ? _this.auiToast.location = e.currentTarget.dataset.location : _this.auiToast.location = 'bottom';
       _aui.aui.isDefine(e.currentTarget.dataset.direction) ? _this.auiToast.direction = e.currentTarget.dataset.direction : _this.auiToast.direction = 'col';
       // _this.$refs.toast.show();
       _this.$refs.toast.show().then(function () {

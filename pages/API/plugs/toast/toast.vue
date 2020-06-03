@@ -67,7 +67,7 @@
 				var _this = this;
 				aui.isDefine(e.currentTarget.dataset.msg) ? _this.auiToast.msg = e.currentTarget.dataset.msg : _this.auiToast.msg = '网络连接错误，请稍后再试';
 				aui.isDefine(e.currentTarget.dataset.icon) ? _this.auiToast.icon = e.currentTarget.dataset.icon : _this.auiToast.icon = '';
-				aui.isDefine(e.currentTarget.dataset.location) ? _this.auiToast.location = e.currentTarget.dataset.location : _this.auiToast.location = 'middle';
+				aui.isDefine(e.currentTarget.dataset.location) ? _this.auiToast.location = e.currentTarget.dataset.location : _this.auiToast.location = 'bottom';
 				aui.isDefine(e.currentTarget.dataset.direction) ? _this.auiToast.direction = e.currentTarget.dataset.direction : _this.auiToast.direction = 'col';
 				// _this.$refs.toast.show();
 				_this.$refs.toast.show().then(function(){
