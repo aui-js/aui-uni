@@ -155,6 +155,18 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /* dialog 模态弹窗样式 */
 .aui-dialog{
 	width: 100vw;
@@ -166,7 +178,8 @@
 	z-index: 999;
 }
 .aui-dialog-main{
-	min-width: 300px;
+	min-width: 270px;
+	max-width: 300px;
 	background: #fff;
 	border-radius: 13px;
 	position: absolute;
@@ -349,8 +362,12 @@
 	padding: 0 10px;
 	margin: 0 0 0 10px;
 }
-.aui-dialog-main-style-3 .aui-dialog-down{
+.aui-dialog-main-style-3 .aui-dialog-down{		
 	height: auto;
+}
+.aui-dialog-main-style-3 .aui-dialog-down-btn{
+	width: 100%;
+	line-height: 50px;
 }
 .aui-dialog-main-style-3 .aui-dialog-down-btn:before{
 	content: '';
@@ -360,13 +377,65 @@
 	transform: scaleY(.3);
 	background: rgba(100,100,100,.4);
 	position: absolute;
-	bottom: 0;
+	top: 0;
 	left: 0;
+	z-index: 1;
 }
 .aui-dialog-main-style-3 .aui-dialog-down-btn:last-child{
 	border-bottom-left-radius: 13px;
 	border-bottom-right-radius: 13px;
 }
-.aui-dialog-main-style-3 .aui-dialog-down-btn:last-child:before{display: none;}
 .aui-dialog-main-style-3 .aui-dialog-down-btn:first-child:after{display: none;}
+/*input  输入弹窗样式设置*/
+.aui-dialog-input-list{
+	width: 100%;
+	position: relative;
+	text-align: left;
+}
+.aui-dialog-input-list .aui-dialog-input-label{
+	width: 260px;
+	height: 40px;
+	line-height: 40px;
+	display: inline-block;
+	font-size: 16px;
+	color: #646464;
+}
+.aui-dialog-input-list-input{
+	width: 100%;
+	background: #FFFFFF;
+	border-radius: 3px;
+	border: none;
+	box-sizing: border-box;
+	padding: 2px;
+	margin: 0 0 15px 0;
+	color: #515151;
+	position: relative;
+}
+.aui-dialog-input-list input{
+	width: 100%;
+	height: 40px;
+	line-height: 20px;
+	border-radius: 3px;
+	border: none;
+	margin: 0;
+	padding: 0 10px;
+	box-sizing: border-box;
+	font-size: 15px;
+	color: #515151;
+	position: relative;
+	z-index: 1;
+}
+.aui-dialog-input-list-input:after{
+	content: '';
+	width: 200%;
+	height: 200%;
+	border: 1px solid rgba(100,100,100,.3);
+	-webkit-transform: scale(.5, .5);
+	transform: scale(.5, .5);
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	border-radius: 10px;
+	z-index: 0;
+}	
 

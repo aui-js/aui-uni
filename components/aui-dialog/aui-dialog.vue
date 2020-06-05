@@ -3,19 +3,27 @@
 		<view class="aui-mask" v-if="mask" @click.stop="maskTapClose ? hide() : ''"></view>
 		<view class="aui-dialog-main" :class="{'aui-dialog-main-style-1': theme==1, 'aui-dialog-main-style-2': theme==2, 'aui-dialog-main-style-3': theme==3}">
 			<view class="aui-dialog-title" v-if="title">{{title}}</view>
-			<view class="aui-dialog-content">{{msg}}</view>
+			<view class="aui-dialog-content" v-if="msg!=''" :style="{'text-align': msg.length > 15 ? 'left' : 'center'}" v-html="msg"></view>
+			<view class="aui-dialog-content" v-if="items.length > 0">
+				<view class="aui-dialog-input-list" v-for="(item, index) in items" :key="index" :data-index="index">
+					<view class="aui-dialog-input-label" v-if="item.label">{{item.label}}</view>
+					<view class="aui-dialog-input-list-input">
+						<input :type="item.type ? item.type : 'text'" :value="item.value" :data-index="index"  @input="_onInput" :placeholder="item.placeholder" />
+					</view>
+				</view>
+			</view>
 			<view class="aui-dialog-down">
 				<view 
 					class="aui-dialog-down-btn"
 					v-for="(item, index) in btns" 
-					:class="{'aui-dialog-down-cancel-btn': item.name=='取消', 'aui-dialog-down-delete-btn': item.name=='删除', 'active': BTNS[index].isTouch}"
+					:class="{'aui-dialog-down-cancel-btn': item.name=='取消', 'aui-dialog-down-delete-btn': item.name=='删除', 'active': BTNS[index] && BTNS[index].isTouch}"
 					:key="index" 
 					:data-index="index" 
-					:style="{color: item.color, width: theme==1||theme==3?'calc(100% / '+ btns.length +')':''}"
+					:style="{color: item.color, width: theme==1?'calc(100% / '+ btns.length +')':''}"
 					@click.stop="btnTab($event)"
-					@touchstart="btnTouchStart($event)"
-					@touchmove="btnTouchEnd($event)"
-					@touchend="btnTouchEnd($event)"
+					@touchstart="_btnTouchStart($event)"
+					@touchmove="_btnTouchEnd($event)"
+					@touchend="_btnTouchEnd($event)"
 				>{{item.name}}</view>
 			</view>
 		</view>
@@ -46,7 +54,7 @@
 				type: Array,
 				default (){
 					return [
-						{name: '确定', color: '#909090', isTouch: false}
+						{name: '确定', color: '#197DE0', isTouch: false}
 					]
 				}
 			},
@@ -54,7 +62,7 @@
 				type: Array,
 				default (){
 					return [
-						{label: '', type: 'text', value: '(可选)', placeholder: ''}
+						{label: '', type: 'text', value: '', placeholder: ''}
 					]
 				}
 			},
@@ -62,40 +70,21 @@
 				type: Number,
 				default: 1
 			},
-			styles: { //样式
-				type: Object,
-				default () {
-					return {
-						w: '', //模态窗宽度，默认80%
-						h: '', //模态窗高度，默认"auto"自适应
-						bg: '',//模态窗背景色，默认白色
-						textAlign: '', //模态窗内容排版
-						zIndex: '', //模态窗层级
-						title: {
-							bg: "",
-							color: "",
-							lineHeight: "",
-							textAlign: "",
-							fontSize: "",
-							padding: ""
-						}
-					}
-				}
-			},
 		},
 		data() {
 			return {
 				SHOW: false,
 				FADE: false,
-				BTNS: []
+				BTNS: [],
+				ITEMS: []
 			};
 		},
 		created(){
 			var _this = this;
 			_this.BTNS = _this.btns;
-			_this.BTNS.forEach((item, index)=>{
-				_this.$set(item, 'isTouch', false)
-			})
+			_this.btns.forEach((item, index)=>{
+				_this.BTNS.push({name: item.name, color: item.color, isTouch: false});
+			});			
 		},
 		onLoad(){
 			
@@ -104,7 +93,7 @@
 			//显示
 			show(){
 				var _this = this;
-				return new Promise(function(resolve, reject){
+				return new Promise(function(resolve, reject){					
 					_this.SHOW = true;
 					var _showtimer = setTimeout(()=>{
 						_this.FADE = true;
@@ -140,16 +129,39 @@
 					clearTimeout(_closetimer);
 				},100)
 			},
-			btnTouchStart(e){
+			//输入检测
+			_onInput(e){
+				var _this = this,
+					index = Number(e.currentTarget.dataset.index),
+					value = e.detail.value;
+				if(_this.ITEMS.length <= 0)
+				{
+					_this.items.forEach((item, index)=>{
+						_this.ITEMS.push({label: item.label, type: item.type, value: item.value, placeholder: item.placeholder});
+					});	
+				}
+				_this.$set(_this.ITEMS[index], 'value', value);
+				
+			},
+			getVal(){
+				var _this = this;
+				setTimeout(()=>{
+					_this.ITEMS = [];
+				},200)
+				return _this.ITEMS;
+			},
+			_btnTouchStart(e){
 				var _this = this,
 					index = Number(e.currentTarget.dataset.index);
+				_this.BTNS = _this.btns;
 				_this.$set(_this.BTNS[index], 'isTouch', true)
 			},
-			btnTouchEnd(e){
+			_btnTouchEnd(e){
 				var _this = this,
 					index = Number(e.currentTarget.dataset.index);
+				_this.BTNS = _this.btns;
 				_this.$set(_this.BTNS[index], 'isTouch', false)
-			},
+			},			
 		}
 	}
 </script>
@@ -166,7 +178,8 @@
 		z-index: 999;
 	}
 	.aui-dialog-main{
-		min-width: 300px;
+		min-width: 270px;
+		max-width: 300px;
 		background: #fff;
 		border-radius: 13px;
 		position: absolute;
@@ -334,8 +347,12 @@
 		padding: 0 10px;
 		margin: 0 0 0 10px;
 	}
-	.aui-dialog-main-style-3 .aui-dialog-down{
+	.aui-dialog-main-style-3 .aui-dialog-down{		
 		height: auto;
+	}
+	.aui-dialog-main-style-3 .aui-dialog-down-btn{
+		width: 100%;
+		line-height: 50px;
 	}
 	.aui-dialog-main-style-3 .aui-dialog-down-btn:before{
 		content: '';
@@ -346,13 +363,66 @@
 		transform: scaleY(.3);
 		background: rgba(100,100,100,.4);
 		position: absolute;
-		bottom: 0;
+		top: 0;
 		left: 0;
+		z-index: 1;
 	}
 	.aui-dialog-main-style-3 .aui-dialog-down-btn:last-child{
 		border-bottom-left-radius: 13px;
 		border-bottom-right-radius: 13px;
 	}
-	.aui-dialog-main-style-3 .aui-dialog-down-btn:last-child:before{display: none;}
 	.aui-dialog-main-style-3 .aui-dialog-down-btn:first-child:after{display: none;}
+	/*input  输入弹窗样式设置*/
+	.aui-dialog-input-list{
+		width: 100%;
+		position: relative;
+		text-align: left;
+	}
+	.aui-dialog-input-list .aui-dialog-input-label{
+		width: 260px;
+		height: 40px;
+		line-height: 40px;
+		display: inline-block;
+		font-size: 16px;
+		color: #646464;
+	}
+	.aui-dialog-input-list-input{
+		width: 100%;
+		background: #FFFFFF;
+		border-radius: 3px;
+		border: none;
+		box-sizing: border-box;
+		padding: 2px;
+		margin: 0 0 15px 0;
+		color: #515151;
+		position: relative;
+	}
+	.aui-dialog-input-list input{
+		width: 100%;
+		height: 40px;
+		line-height: 20px;
+		border-radius: 3px;
+		border: none;
+		margin: 0;
+		padding: 0 10px;
+		box-sizing: border-box;
+		font-size: 15px;
+		color: #515151;
+		position: relative;
+		z-index: 1;
+	}
+	.aui-dialog-input-list-input:after{
+		content: '';
+		width: 200%;
+		height: 200%;
+		border: 1px solid rgba(100,100,100,.3);
+		-ms-transform: scale(.5, .5);
+		-webkit-transform: scale(.5, .5);
+		transform: scale(.5, .5);
+		position: absolute;
+		top: -50%;
+		left: -50%;
+		border-radius: 10px;
+		z-index: 0;
+	}	
 </style>

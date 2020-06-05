@@ -3,13 +3,13 @@
 	<view class="aui-toast aui-toast-middle" :class="{'aui-toast-row': direction=='row'}" v-if="SHOW && icon">
 		<view class="aui-toast-main">
 			<view class="aui-toast-icon"><img :src="icon" /></view>
-			<view class="aui-toast-msg">{{msg}}</view>
+			<view class="aui-toast-msg" v-html="msg"></view>
 		</view>
 	</view>
 	<!-- 无图标 -->
 	<view class="aui-toast" :class="{'aui-toast-bottom': location=='bottom', 'aui-toast-middle': location=='middle'}" v-else-if="SHOW && !icon">
 		<view class="aui-toast-main">
-			<view class="aui-toast-msg">{{msg}}</view>
+			<view class="aui-toast-msg" v-html="msg"></view>
 		</view>
 	</view>
 </template>

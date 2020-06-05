@@ -95,7 +95,7 @@ var components = {
     return __webpack_require__.e(/*! import() | components/aui-toast/aui-toast */ "components/aui-toast/aui-toast").then(__webpack_require__.bind(null, /*! @/components/aui-toast/aui-toast.vue */ 75))
   },
   auiDialog: function() {
-    return __webpack_require__.e(/*! import() | components/aui-dialog/aui-dialog */ "components/aui-dialog/aui-dialog").then(__webpack_require__.bind(null, /*! @/components/aui-dialog/aui-dialog.vue */ 90))
+    return __webpack_require__.e(/*! import() | components/aui-dialog/aui-dialog */ "components/aui-dialog/aui-dialog").then(__webpack_require__.bind(null, /*! @/components/aui-dialog/aui-dialog.vue */ 82))
   }
 }
 var render = function() {
@@ -136,6 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
 
 
 
@@ -218,51 +219,106 @@ var _aui = __webpack_require__(/*! @/common/aui/js/aui.js */ 22); //
 //
 //
 //
-var auiHeader = function auiHeader() {__webpack_require__.e(/*! require.ensure | components/aui-header/aui-header */ "components/aui-header/aui-header").then((function () {return resolve(__webpack_require__(/*! @/components/aui-header/aui-header.vue */ 68));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiToast = function auiToast() {__webpack_require__.e(/*! require.ensure | components/aui-toast/aui-toast */ "components/aui-toast/aui-toast").then((function () {return resolve(__webpack_require__(/*! @/components/aui-toast/aui-toast.vue */ 75));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiDialog = function auiDialog() {__webpack_require__.e(/*! require.ensure | components/aui-dialog/aui-dialog */ "components/aui-dialog/aui-dialog").then((function () {return resolve(__webpack_require__(/*! @/components/aui-dialog/aui-dialog.vue */ 90));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { auiHeader: auiHeader, auiDialog: auiDialog, auiToast: auiToast }, data: function data() {return { contentHeight: null, auiToast: { msg: '网络连接错误，请稍后再试', icon: '', location: 'bottom', direction: 'col', duration: 2000 }, auiDialog: { title: '提示', msg: "提示内容", btns: [{ name: '取消', color: '#909090' }, { name: '确定', color: '#197DE0' }], mask: true, maskTapClose: true, theme: 1 } };}, methods: { openWin: function openWin(url, opts) {_aui.aui.openWin(url, opts);}, closeWin: function closeWin() {_aui.aui.closeWin();}, headerHeight: function headerHeight(e) {//console.log(e);
+//
+var auiHeader = function auiHeader() {__webpack_require__.e(/*! require.ensure | components/aui-header/aui-header */ "components/aui-header/aui-header").then((function () {return resolve(__webpack_require__(/*! @/components/aui-header/aui-header.vue */ 68));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiToast = function auiToast() {__webpack_require__.e(/*! require.ensure | components/aui-toast/aui-toast */ "components/aui-toast/aui-toast").then((function () {return resolve(__webpack_require__(/*! @/components/aui-toast/aui-toast.vue */ 75));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiDialog = function auiDialog() {__webpack_require__.e(/*! require.ensure | components/aui-dialog/aui-dialog */ "components/aui-dialog/aui-dialog").then((function () {return resolve(__webpack_require__(/*! @/components/aui-dialog/aui-dialog.vue */ 82));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { auiHeader: auiHeader, auiDialog: auiDialog, auiToast: auiToast }, data: function data() {return { contentHeight: null, auiToast: { msg: '网络连接错误，请稍后再试', icon: '', location: 'bottom', direction: 'col', duration: 2000 }, auiDialog: { title: '', msg: '', btns: [{ name: '确定' }], mask: true, maskTapClose: true, items: [], theme: 1 } };}, methods: { openWin: function openWin(url, opts) {_aui.aui.openWin(url, opts);}, closeWin: function closeWin() {_aui.aui.closeWin();}, headerHeight: function headerHeight(e) {//console.log(e);
       var _uni$getSystemInfoSyn = uni.getSystemInfoSync(),windowWidth = _uni$getSystemInfoSyn.windowWidth,windowHeight = _uni$getSystemInfoSyn.windowHeight;
-
-
-
+    },
+    //dialog弹窗底部按钮回调
+    dialogCallback: function dialogCallback(e) {
+      var _this = this;
+      //console.log(e);
+      _this.auiToast.msg = '您点击了' + e.msg;
+      _this.$refs.toast.show();
+      if (_this.$refs.dialog.getVal().length > 0)
+      {//prompt输入框——点击确定时弹出输入内容
+        _this.auiDialog.title = '提示';
+        _this.$refs.dialog.getVal().forEach(function (item, index) {
+          _this.auiDialog.msg += '<div style="display: flex;">' + item.label + '：' + item.value + '</div>';
+        });
+        _this.auiDialog.btns = [{ name: '确定', color: '#197DE0' }];
+        _this.auiDialog.items = [];
+        _this.auiDialog.theme = 1;
+        _this.$refs.dialog.show();
+      }
     },
     alert: function alert(theme) {
       var _this = this;
       _this.auiDialog.title = '提示';
       _this.auiDialog.msg = '您点击了alert单按钮模态弹窗！';
       _this.auiDialog.btns = [{ name: '确定', color: '#197DE0' }];
+      _this.auiDialog.items = [];
       _this.auiDialog.theme = theme;
-      _this.$refs.auiDialog.show();
+      _this.$refs.dialog.show();
     },
     confirm: function confirm(theme) {
       var _this = this;
       _this.auiDialog.title = '提示';
       _this.auiDialog.msg = '您点击了confirm双按钮模态弹窗！';
+      _this.auiDialog.items = [];
       _this.auiDialog.btns = [
       { name: '取消' },
       { name: '确定' }];
 
       _this.auiDialog.theme = theme;
-      _this.$refs.auiDialog.show();
+      _this.$refs.dialog.show();
     },
     Delete: function Delete(theme) {
       var _this = this;
       _this.auiDialog.title = '提示';
       _this.auiDialog.msg = '您点击了delete删除模态弹窗！';
+      _this.auiDialog.items = [];
       _this.auiDialog.btns = [
       { name: '取消' },
       { name: '删除' }];
 
       _this.auiDialog.theme = theme;
-      _this.$refs.auiDialog.show();
+      _this.$refs.dialog.show();
     },
-    dialogCallback: function dialogCallback(e) {
+    confirmCustom: function confirmCustom(theme) {
       var _this = this;
-      console.log(e);
-      if (e.msg == '确定' || e.msg == '删除') {
-        _this.auiToast.msg = _this.auiDialog.msg;
-        _this.$refs.toast.show().then(function () {
-          console.log('toast关闭');
-        });
-      }
+      _this.auiDialog.title = '提示';
+
+
+
+
+      var icon = '../../../../static/success-green.png';
+
+      _this.auiDialog.msg = '<div style="display: flex; justify-content: center; margin: 0 0 10px 0;"><img src="' + icon + '"></div><div style="width: 100%; display: block; text-align: center;">带图标模态弹窗</div>';
+      _this.auiDialog.items = [];
+      _this.auiDialog.btns = [
+      { name: '取消' },
+      { name: '确定' }];
+
+      _this.auiDialog.theme = theme;
+      _this.$refs.dialog.show();
+    },
+    confirmMoreBtns: function confirmMoreBtns(theme) {
+      var _this = this;
+      _this.auiDialog.title = '提示';
+      _this.auiDialog.msg = '您点击了confirm双按钮模态弹窗！';
+      _this.auiDialog.items = [];
+      _this.auiDialog.btns = [
+      { name: '残忍拒绝' },
+      { name: '再逛逛' },
+      { name: "返回首页", color: "#909090" }];
+
+      _this.auiDialog.theme = theme;
+      _this.$refs.dialog.show();
+    },
+    prompt: function prompt(theme) {
+      var _this = this;
+      _this.auiDialog.title = '提示';
+      _this.auiDialog.msg = '';
+      _this.auiDialog.items = [
+      { label: '姓名', type: '', placeholder: '请输入姓名' },
+      { label: '性别', type: 'text', placeholder: '请输入性别' }];
+
+      _this.auiDialog.btns = [
+      { name: '取消' },
+      { name: '确定' }];
+
+      _this.auiDialog.theme = theme;
+      _this.$refs.dialog.show();
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
