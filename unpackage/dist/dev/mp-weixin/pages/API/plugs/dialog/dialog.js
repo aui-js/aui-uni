@@ -277,13 +277,7 @@ var auiHeader = function auiHeader() {__webpack_require__.e(/*! require.ensure |
     confirmCustom: function confirmCustom(theme) {
       var _this = this;
       _this.auiDialog.title = '提示';
-
-
-
-
-      var icon = '../../../../static/success-green.png';
-
-      _this.auiDialog.msg = '<div style="display: flex; justify-content: center; margin: 0 0 10px 0;"><img src="' + icon + '"></div><div style="width: 100%; display: block; text-align: center;">带图标模态弹窗</div>';
+      _this.auiDialog.msg = '<div style="display: flex; justify-content: center; margin: 0 0 10px 0;"><img style="width: 100px; height: 100px; display: inline-block" src="http://pic2.sc.chinaz.com/files/pic/pic9/201910/bpic14122.jpg"></div><div style="width: 100%; display: block; text-align: center;">带图标模态弹窗</div>';
       _this.auiDialog.items = [];
       _this.auiDialog.btns = [
       { name: '取消' },

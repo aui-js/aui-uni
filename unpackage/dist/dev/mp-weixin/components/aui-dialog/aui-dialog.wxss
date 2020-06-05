@@ -178,7 +178,7 @@
 	z-index: 999;
 }
 .aui-dialog-main{
-	min-width: 270px;
+	min-width: 280px;
 	max-width: 300px;
 	background: #fff;
 	border-radius: 13px;
