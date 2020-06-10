@@ -1,7 +1,13 @@
 <template name="aui-dialog">
-	<view class="aui-dialog" v-if="SHOW" :class="{'aui-dialog-in': FADE, 'aui-dialog-out': !FADE}">
+	<view class="aui-dialog" v-if="SHOW" :class="{'aui-dialog-in': FADE==1, 'aui-dialog-out': FADE==0}">
 		<view class="aui-mask" v-if="mask" @click.stop="maskTapClose ? hide() : ''"></view>
-		<view class="aui-dialog-main" :class="{'aui-dialog-main-style-1': theme==1, 'aui-dialog-main-style-2': theme==2, 'aui-dialog-main-style-3': theme==3}">
+		<view class="aui-dialog-main" 
+			:class="{
+				'aui-dialog-main-style-1': theme==1, 
+				'aui-dialog-main-style-2': theme==2, 
+				'aui-dialog-main-style-3': theme==3
+			}"
+		>
 			<view class="aui-dialog-title" v-if="title">{{title}}</view>
 			<view class="aui-dialog-content" v-if="msg!=''" :style="{'text-align': msg.length > 15 ? 'left' : 'center'}" v-html="msg"></view>
 			<view class="aui-dialog-content" v-if="items.length > 0">
@@ -16,11 +22,15 @@
 				<view 
 					class="aui-dialog-down-btn"
 					v-for="(item, index) in btns" 
-					:class="{'aui-dialog-down-cancel-btn': item.name=='取消', 'aui-dialog-down-delete-btn': item.name=='删除', 'active': BTNS[index] && BTNS[index].isTouch}"
+					:class="{'aui-dialog-down-cancel-btn': item.name=='取消', 'aui-dialog-down-delete-btn': item.name=='删除'}"
 					:key="index" 
 					:data-index="index" 
-					:style="{color: item.color, width: theme==1?'calc(100% / '+ btns.length +')':''}"
-					@click.stop="btnTab($event)"
+					:style="{
+						'color': touchIndex == index ? touchStyle.color : item.color,
+						'background': touchIndex == index ? touchStyle.background : '',
+						'width': theme==1?'calc(100% / '+ btns.length +')':''
+					}"
+					@click.stop="_btnTab($event)"
 					@touchstart="_btnTouchStart($event)"
 					@touchmove="_btnTouchEnd($event)"
 					@touchend="_btnTouchEnd($event)"
@@ -74,17 +84,18 @@
 		data() {
 			return {
 				SHOW: false,
-				FADE: false,
-				BTNS: [],
-				ITEMS: []
+				FADE: -1,
+				ITEMS: [],
+				touchIndex: -1, //长按时当前索引
+				touchStyle: { //长按时当前样式设置
+					color: '',
+					background: '#EFEFEF'
+				}
 			};
 		},
 		created(){
 			var _this = this;
-			_this.BTNS = _this.btns;
-			_this.btns.forEach((item, index)=>{
-				_this.BTNS.push({name: item.name, color: item.color, isTouch: false});
-			});			
+					
 		},
 		onLoad(){
 			
@@ -96,9 +107,9 @@
 				return new Promise(function(resolve, reject){					
 					_this.SHOW = true;
 					var _showtimer = setTimeout(()=>{
-						_this.FADE = true;
+						_this.FADE = 1;
 						clearTimeout(_showtimer);
-					},100)
+					},50)
 					resolve();
 				});
 			},
@@ -106,16 +117,17 @@
 			hide(){
 				var _this = this;
 				return new Promise(function(resolve, reject){
-					_this.FADE = false;
+					_this.FADE = 0;
 					var _hidetimer = setTimeout(()=>{
 						_this.SHOW = false;
+						_this.FADE = -1;
 						clearTimeout(_hidetimer);
-					},100)
+					},50)
 					resolve();
 				});
 			},
 			//底部按钮点击
-			btnTab(e){
+			_btnTab(e){
 				var _this = this, 
 					index = Number(e.currentTarget.dataset.index);
 				_this.hide();
@@ -153,14 +165,12 @@
 			_btnTouchStart(e){
 				var _this = this,
 					index = Number(e.currentTarget.dataset.index);
-				_this.BTNS = _this.btns;
-				_this.$set(_this.BTNS[index], 'isTouch', true)
+				_this.touchIndex = index;
 			},
 			_btnTouchEnd(e){
 				var _this = this,
 					index = Number(e.currentTarget.dataset.index);
-				_this.BTNS = _this.btns;
-				_this.$set(_this.BTNS[index], 'isTouch', false)
+				_this.touchIndex = -1;
 			},			
 		}
 	}

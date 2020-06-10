@@ -21,9 +21,6 @@
 		<aui-toast
 			ref="toast"
 			:msg="auiToast.msg"
-			:location = "auiToast.location"
-			:direction="auiToast.direction"
-			:icon="auiToast.icon"
 			:duration="auiToast.duration"
 		></aui-toast>
 		<aui-dialog 
@@ -37,6 +34,15 @@
 			:theme="auiDialog.theme"
 			@callback="dialogCallback"
 		></aui-dialog>
+		<!-- 简单调用dialog -->
+		<!-- <aui-dialog
+			ref="dialog"
+			:title="auiDialog.title"
+			:msg="auiDialog.msg"
+			:btns="auiDialog.btns"
+			:mask="auiDialog.mask"
+			@callback="dialogCallback"
+		></aui-dialog> -->
 	</view>
 </template>
 
@@ -56,9 +62,6 @@
 				contentHeight: null,
 				auiToast: {
 					msg: '网络连接错误，请稍后再试',
-					icon: '',
-					location: 'bottom',
-					direction: 'col',
 					duration: 2000,
 				},
 				auiDialog: {

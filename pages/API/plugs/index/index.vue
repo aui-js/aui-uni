@@ -9,7 +9,7 @@
 					<view class="aui-list-left">actionMenu 底部菜单</view>
 					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
 				</view>
-				<view class="aui-list" onclick="aui.openWin('actionsheet.html')">
+				<view class="aui-list" @click.stop="openWin('../actionsheet/actionsheet')">
 					<view class="aui-list-left">actionSheet 操作表</view>
 					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
 				</view>

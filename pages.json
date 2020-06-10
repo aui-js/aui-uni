@@ -36,6 +36,10 @@
 				"navigationBarTitleText": "实例"
 			}
         }
+        ,{
+            "path" : "pages/API/plugs/actionsheet/actionsheet",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
