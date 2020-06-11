@@ -1,17 +1,29 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/API/index/index",
+			"path": "pages/API/index",
 			"style": {
 				"navigationBarTitleText": "aui"
 			}
 		}
-        ,{
-            "path" : "pages/API/plugs/index/index",
-            "style" : {
+		,{
+		    "path" : "pages/API/devices/index",
+		    "style" : {
+				"navigationBarTitleText": "设备"
+			}
+		}
+		,{
+		    "path" : "pages/API/events/index",
+		    "style" : {
+				"navigationBarTitleText": "事件"
+			}
+		}
+		,{
+		    "path" : "pages/API/plugs/index",
+		    "style" : {
 				"navigationBarTitleText": "组件"
 			}
-        }
+		}
         ,{
             "path" : "pages/API/plugs/loading/loading",
             "style" : {
@@ -30,16 +42,32 @@
 				"navigationBarTitleText": "toast消息提示弹窗"
 			}
         }
+		,{
+		    "path" : "pages/API/plugs/actionsheet/actionsheet",
+		    "style" : {
+				"navigationBarTitleText": "actionsheet操作弹窗"
+			}
+		}
+		,{
+		    "path" : "pages/API/plugs/poster/poster",
+		    "style" : {
+				"navigationBarTitleText": "poster广告弹窗"
+			}
+		}
+		,{
+		    "path" : "pages/API/address/index",
+		    "style" : {
+				"navigationBarTitleText": "位置"
+			}
+		}
         ,{
-            "path" : "pages/demo/index/index",
+            "path" : "pages/demo/index",
             "style" : {
 				"navigationBarTitleText": "实例"
 			}
-        }
-        ,{
-            "path" : "pages/API/plugs/actionsheet/actionsheet",
-            "style" : {}
-        }
+        } 
+                
+        
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
@@ -56,13 +84,13 @@
 		"borderStyle": "black",
 		"backgroundColor": "#ffffff",
 		"list": [{
-				"pagePath": "pages/API/index/index",
+				"pagePath": "pages/API/index",
 				"iconPath": "static/tab-api.png",
 				"selectedIconPath": "static/tab-api-active.png",
 				"text": "API"
 			},
 			{
-				"pagePath": "pages/demo/index/index",
+				"pagePath": "pages/demo/index",
 				"iconPath": "static/tab-demo.png",
 				"selectedIconPath": "static/tab-demo-active.png",
 				"text": "DEMO"

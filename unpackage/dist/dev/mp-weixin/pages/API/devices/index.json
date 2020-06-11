@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "设备",
+  "usingComponents": {
+    "aui-header": "/components/aui-header/aui-header"
+  }
+}

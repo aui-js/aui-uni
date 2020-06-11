@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "位置",
+  "usingComponents": {
+    "aui-header": "/components/aui-header/aui-header"
+  }
+}

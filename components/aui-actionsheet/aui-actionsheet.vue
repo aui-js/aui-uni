@@ -40,6 +40,7 @@
 
 <script>
 	export default {
+		name: 'aui-actionsheet',
 		props: {
 			title: { //标题
 				type: String,

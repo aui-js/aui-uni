@@ -94,7 +94,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   auiToast: function() {
-    return __webpack_require__.e(/*! import() | components/aui-toast/aui-toast */ "components/aui-toast/aui-toast").then(__webpack_require__.bind(null, /*! @/components/aui-toast/aui-toast.vue */ 75))
+    return __webpack_require__.e(/*! import() | components/aui-toast/aui-toast */ "components/aui-toast/aui-toast").then(__webpack_require__.bind(null, /*! @/components/aui-toast/aui-toast.vue */ 91))
   }
 }
 var render = function() {
@@ -193,7 +193,7 @@ var _aui = __webpack_require__(/*! @/common/aui/js/aui.js */ 22); //
 //
 //
 //
-var auiHeader = function auiHeader() {__webpack_require__.e(/*! require.ensure | components/aui-header/aui-header */ "components/aui-header/aui-header").then((function () {return resolve(__webpack_require__(/*! @/components/aui-header/aui-header.vue */ 68));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiToast = function auiToast() {__webpack_require__.e(/*! require.ensure | components/aui-toast/aui-toast */ "components/aui-toast/aui-toast").then((function () {return resolve(__webpack_require__(/*! @/components/aui-toast/aui-toast.vue */ 75));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { auiHeader: auiHeader, auiToast: auiToast }, data: function data() {return { contentHeight: null, auiToast: { msg: '网络连接错误，请稍后再试', icon: '', location: 'bottom', direction: 'col', duration: 2000 } };}, methods: { openWin: function openWin(url, opts) {_aui.aui.openWin(url, opts);}, closeWin: function closeWin() {_aui.aui.closeWin();}, headerHeight: function headerHeight(e) {//console.log(e);
+var auiHeader = function auiHeader() {__webpack_require__.e(/*! require.ensure | components/aui-header/aui-header */ "components/aui-header/aui-header").then((function () {return resolve(__webpack_require__(/*! @/components/aui-header/aui-header.vue */ 84));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiToast = function auiToast() {__webpack_require__.e(/*! require.ensure | components/aui-toast/aui-toast */ "components/aui-toast/aui-toast").then((function () {return resolve(__webpack_require__(/*! @/components/aui-toast/aui-toast.vue */ 91));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { auiHeader: auiHeader, auiToast: auiToast }, data: function data() {return { contentHeight: null, auiToast: { msg: '网络连接错误，请稍后再试', icon: '', location: 'bottom', direction: 'col', duration: 2000 } };}, methods: { openWin: function openWin(url, opts) {_aui.aui.openWin(url, opts);}, closeWin: function closeWin() {_aui.aui.closeWin();}, headerHeight: function headerHeight(e) {//console.log(e);
       var _uni$getSystemInfoSyn = uni.getSystemInfoSync(),windowWidth = _uni$getSystemInfoSyn.windowWidth,windowHeight = _uni$getSystemInfoSyn.windowHeight;
 
 

@@ -92,10 +92,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   auiToast: function() {
-    return __webpack_require__.e(/*! import() | components/aui-toast/aui-toast */ "components/aui-toast/aui-toast").then(__webpack_require__.bind(null, /*! @/components/aui-toast/aui-toast.vue */ 75))
+    return __webpack_require__.e(/*! import() | components/aui-toast/aui-toast */ "components/aui-toast/aui-toast").then(__webpack_require__.bind(null, /*! @/components/aui-toast/aui-toast.vue */ 91))
   },
   auiDialog: function() {
-    return __webpack_require__.e(/*! import() | components/aui-dialog/aui-dialog */ "components/aui-dialog/aui-dialog").then(__webpack_require__.bind(null, /*! @/components/aui-dialog/aui-dialog.vue */ 82))
+    return __webpack_require__.e(/*! import() | components/aui-dialog/aui-dialog */ "components/aui-dialog/aui-dialog").then(__webpack_require__.bind(null, /*! @/components/aui-dialog/aui-dialog.vue */ 98))
   }
 }
 var render = function() {
@@ -136,6 +136,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
 
 
 
@@ -220,20 +226,17 @@ var _aui = __webpack_require__(/*! @/common/aui/js/aui.js */ 22); //
 //
 //
 //
-var auiHeader = function auiHeader() {__webpack_require__.e(/*! require.ensure | components/aui-header/aui-header */ "components/aui-header/aui-header").then((function () {return resolve(__webpack_require__(/*! @/components/aui-header/aui-header.vue */ 68));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiToast = function auiToast() {__webpack_require__.e(/*! require.ensure | components/aui-toast/aui-toast */ "components/aui-toast/aui-toast").then((function () {return resolve(__webpack_require__(/*! @/components/aui-toast/aui-toast.vue */ 75));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiDialog = function auiDialog() {__webpack_require__.e(/*! require.ensure | components/aui-dialog/aui-dialog */ "components/aui-dialog/aui-dialog").then((function () {return resolve(__webpack_require__(/*! @/components/aui-dialog/aui-dialog.vue */ 82));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { auiHeader: auiHeader, auiDialog: auiDialog, auiToast: auiToast }, data: function data() {return { contentHeight: null, auiToast: { msg: '网络连接错误，请稍后再试', icon: '', location: 'bottom', direction: 'col', duration: 2000 }, auiDialog: { title: '', msg: '', btns: [{ name: '确定' }], mask: true, maskTapClose: true, items: [], theme: 1 } };}, methods: { openWin: function openWin(url, opts) {_aui.aui.openWin(url, opts);}, closeWin: function closeWin() {_aui.aui.closeWin();}, headerHeight: function headerHeight(e) {//console.log(e);
-      var _uni$getSystemInfoSyn = uni.getSystemInfoSync(),windowWidth = _uni$getSystemInfoSyn.windowWidth,windowHeight = _uni$getSystemInfoSyn.windowHeight;
-    },
-    //dialog弹窗底部按钮回调
-    dialogCallback: function dialogCallback(e) {
-      var _this = this;
-      //console.log(e);
-      _this.auiToast.msg = '您点击了' + e.msg;
-      _this.$refs.toast.show();
-      if (_this.$refs.dialog.getVal().length > 0)
-      {//prompt输入框——点击确定时弹出输入内容
-        _this.auiDialog.title = '提示';
-        _this.$refs.dialog.getVal().forEach(function (item, index) {
-          _this.auiDialog.msg += '<div style="display: flex;">' + item.label + '：' + item.value + '</div>';
+//
+//
+//
+//
+//
+//
+var auiHeader = function auiHeader() {__webpack_require__.e(/*! require.ensure | components/aui-header/aui-header */ "components/aui-header/aui-header").then((function () {return resolve(__webpack_require__(/*! @/components/aui-header/aui-header.vue */ 84));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiToast = function auiToast() {__webpack_require__.e(/*! require.ensure | components/aui-toast/aui-toast */ "components/aui-toast/aui-toast").then((function () {return resolve(__webpack_require__(/*! @/components/aui-toast/aui-toast.vue */ 91));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiDialog = function auiDialog() {__webpack_require__.e(/*! require.ensure | components/aui-dialog/aui-dialog */ "components/aui-dialog/aui-dialog").then((function () {return resolve(__webpack_require__(/*! @/components/aui-dialog/aui-dialog.vue */ 98));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { auiHeader: auiHeader, auiDialog: auiDialog, auiToast: auiToast }, data: function data() {return { contentHeight: null, auiToast: { msg: '网络连接错误，请稍后再试', duration: 2000 }, auiDialog: { title: '', msg: '', btns: [{ name: '确定' }], mask: true, maskTapClose: true, items: [], theme: 1 } };}, methods: { openWin: function openWin(url, opts) {_aui.aui.openWin(url, opts);}, closeWin: function closeWin() {_aui.aui.closeWin();}, headerHeight: function headerHeight(e) {//console.log(e);
+      var _uni$getSystemInfoSyn = uni.getSystemInfoSync(),windowWidth = _uni$getSystemInfoSyn.windowWidth,windowHeight = _uni$getSystemInfoSyn.windowHeight;}, //dialog弹窗底部按钮回调
+    dialogCallback: function dialogCallback(e) {var _this = this; //console.log(e);
+      _this.auiToast.msg = '您点击了' + e.msg;_this.$refs.toast.show();if (_this.$refs.dialog.getVal().length > 0) {//prompt输入框——点击确定时弹出输入内容
+        _this.auiDialog.title = '提示';_this.$refs.dialog.getVal().forEach(function (item, index) {_this.auiDialog.msg += '<div style="display: flex;">' + item.label + '：' + item.value + '</div>';
         });
         _this.auiDialog.btns = [{ name: '确定', color: '#197DE0' }];
         _this.auiDialog.items = [];

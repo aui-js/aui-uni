@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "actionsheet操作弹窗",
+  "usingComponents": {
+    "aui-toast": "/components/aui-toast/aui-toast",
+    "aui-actionsheet": "/components/aui-actionsheet/aui-actionsheet",
+    "aui-header": "/components/aui-header/aui-header"
+  }
+}

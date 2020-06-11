@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "aui-dialog-view-default": "/components/aui-dialog/aui-dialog-view-default"
-  }
-}
