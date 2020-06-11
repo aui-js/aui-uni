@@ -94,10 +94,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   auiToast: function() {
-    return __webpack_require__.e(/*! import() | components/aui-toast/aui-toast */ "components/aui-toast/aui-toast").then(__webpack_require__.bind(null, /*! @/components/aui-toast/aui-toast.vue */ 111))
+    return __webpack_require__.e(/*! import() | components/aui-toast/aui-toast */ "components/aui-toast/aui-toast").then(__webpack_require__.bind(null, /*! @/components/aui-toast/aui-toast.vue */ 119))
   },
   auiPoster: function() {
-    return __webpack_require__.e(/*! import() | components/aui-poster/aui-poster */ "components/aui-poster/aui-poster").then(__webpack_require__.bind(null, /*! @/components/aui-poster/aui-poster.vue */ 132))
+    return __webpack_require__.e(/*! import() | components/aui-poster/aui-poster */ "components/aui-poster/aui-poster").then(__webpack_require__.bind(null, /*! @/components/aui-poster/aui-poster.vue */ 147))
   }
 }
 var render = function() {
@@ -196,7 +196,7 @@ var _aui = __webpack_require__(/*! @/common/aui/js/aui.js */ 22); //
 //
 //
 //
-var auiHeader = function auiHeader() {__webpack_require__.e(/*! require.ensure | components/aui-header/aui-header */ "components/aui-header/aui-header").then((function () {return resolve(__webpack_require__(/*! @/components/aui-header/aui-header.vue */ 104));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiToast = function auiToast() {__webpack_require__.e(/*! require.ensure | components/aui-toast/aui-toast */ "components/aui-toast/aui-toast").then((function () {return resolve(__webpack_require__(/*! @/components/aui-toast/aui-toast.vue */ 111));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiPoster = function auiPoster() {__webpack_require__.e(/*! require.ensure | components/aui-poster/aui-poster */ "components/aui-poster/aui-poster").then((function () {return resolve(__webpack_require__(/*! @/components/aui-poster/aui-poster.vue */ 132));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { auiHeader: auiHeader, auiToast: auiToast, auiPoster: auiPoster }, data: function data() {return { contentHeight: null, auiToast: { msg: '网络连接错误，请稍后再试', duration: 2000 }, auiPoster: { mask: true, maskTapClose: false, image: 'https://xbjz1.oss-cn-beijing.aliyuncs.com/upload/default/share.png' } };}, methods: { openWin: function openWin(url, opts) {_aui.aui.openWin(url, opts);}, closeWin: function closeWin() {_aui.aui.closeWin();
+var auiHeader = function auiHeader() {__webpack_require__.e(/*! require.ensure | components/aui-header/aui-header */ "components/aui-header/aui-header").then((function () {return resolve(__webpack_require__(/*! @/components/aui-header/aui-header.vue */ 112));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiToast = function auiToast() {__webpack_require__.e(/*! require.ensure | components/aui-toast/aui-toast */ "components/aui-toast/aui-toast").then((function () {return resolve(__webpack_require__(/*! @/components/aui-toast/aui-toast.vue */ 119));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiPoster = function auiPoster() {__webpack_require__.e(/*! require.ensure | components/aui-poster/aui-poster */ "components/aui-poster/aui-poster").then((function () {return resolve(__webpack_require__(/*! @/components/aui-poster/aui-poster.vue */ 147));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { auiHeader: auiHeader, auiToast: auiToast, auiPoster: auiPoster }, data: function data() {return { contentHeight: null, auiToast: { msg: '网络连接错误，请稍后再试', duration: 2000 }, auiPoster: { mask: true, maskTapClose: false, image: 'https://xbjz1.oss-cn-beijing.aliyuncs.com/upload/default/share.png' } };}, methods: { openWin: function openWin(url, opts) {_aui.aui.openWin(url, opts);}, closeWin: function closeWin() {_aui.aui.closeWin();
     },
     headerHeight: function headerHeight(e) {
       //console.log(e);

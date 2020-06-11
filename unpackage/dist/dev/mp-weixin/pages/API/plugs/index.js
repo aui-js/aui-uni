@@ -281,7 +281,7 @@ var _aui = __webpack_require__(/*! @/common/aui/js/aui.js */ 22); //
 //
 //
 //
-var auiHeader = function auiHeader() {__webpack_require__.e(/*! require.ensure | components/aui-header/aui-header */ "components/aui-header/aui-header").then((function () {return resolve(__webpack_require__(/*! @/components/aui-header/aui-header.vue */ 104));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { auiHeader: auiHeader }, data: function data() {return { contentHeight: null };}, methods: { openWin: function openWin(url, opts) {_aui.aui.openWin(url, opts);}, closeWin: function closeWin() {_aui.aui.closeWin();}, headerHeight: function headerHeight(e) {//console.log(e);
+var auiHeader = function auiHeader() {__webpack_require__.e(/*! require.ensure | components/aui-header/aui-header */ "components/aui-header/aui-header").then((function () {return resolve(__webpack_require__(/*! @/components/aui-header/aui-header.vue */ 112));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { auiHeader: auiHeader }, data: function data() {return { contentHeight: null };}, methods: { openWin: function openWin(url, opts) {_aui.aui.openWin(url, opts);}, closeWin: function closeWin() {_aui.aui.closeWin();}, headerHeight: function headerHeight(e) {//console.log(e);
       var _uni$getSystemInfoSyn = uni.getSystemInfoSync(),windowWidth = _uni$getSystemInfoSyn.windowWidth,windowHeight = _uni$getSystemInfoSyn.windowHeight;} } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
