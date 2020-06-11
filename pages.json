@@ -24,6 +24,18 @@
 				"navigationBarTitleText": "组件"
 			}
 		}
+		,{
+		    "path" : "pages/API/plugs/actionmenu/actionmenu",
+		    "style" : {
+				"navigationBarTitleText": "actionmenu底部菜单"
+			}
+		}
+		,{
+		    "path" : "pages/API/plugs/actionsheet/actionsheet",
+		    "style" : {
+				"navigationBarTitleText": "actionsheet操作弹窗"
+			}
+		}
         ,{
             "path" : "pages/API/plugs/loading/loading",
             "style" : {
@@ -36,24 +48,18 @@
 				"navigationBarTitleText": "dialog模态弹窗"
 			}
         }
-        ,{
-            "path" : "pages/API/plugs/toast/toast",
-            "style" : {
-				"navigationBarTitleText": "toast消息提示弹窗"
-			}
-        }
-		,{
-		    "path" : "pages/API/plugs/actionsheet/actionsheet",
-		    "style" : {
-				"navigationBarTitleText": "actionsheet操作弹窗"
-			}
-		}
 		,{
 		    "path" : "pages/API/plugs/poster/poster",
 		    "style" : {
 				"navigationBarTitleText": "poster广告弹窗"
 			}
 		}
+        ,{
+            "path" : "pages/API/plugs/toast/toast",
+            "style" : {
+				"navigationBarTitleText": "toast消息提示弹窗"
+			}
+        }				
 		,{
 		    "path" : "pages/API/address/index",
 		    "style" : {
@@ -66,8 +72,6 @@
 				"navigationBarTitleText": "实例"
 			}
         } 
-                
-        
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",

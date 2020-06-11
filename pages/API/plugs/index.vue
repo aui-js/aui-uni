@@ -5,7 +5,7 @@
 		<!-- #endif -->
 		<view class="aui-content" :style="{height: contentHeight}">
 			<view class="aui-lists">
-				<view class="aui-list" onclick="aui.openWin('actionmenu.html')">
+				<view class="aui-list" @click.stop="openWin('actionmenu/actionmenu')">
 					<view class="aui-list-left">actionMenu 底部菜单</view>
 					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
 				</view>
