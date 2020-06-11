@@ -101,7 +101,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   auiLoading: function() {
-    return __webpack_require__.e(/*! import() | components/aui-loading/aui-loading */ "components/aui-loading/aui-loading").then(__webpack_require__.bind(null, /*! @/components/aui-loading/aui-loading.vue */ 77))
+    return __webpack_require__.e(/*! import() | components/aui-loading/aui-loading */ "components/aui-loading/aui-loading").then(__webpack_require__.bind(null, /*! @/components/aui-loading/aui-loading.vue */ 97))
   }
 }
 var render = function() {
@@ -325,7 +325,7 @@ var _aui = __webpack_require__(/*! @/common/aui/js/aui.js */ 22); //
 //
 //
 //
-var auiHeader = function auiHeader() {__webpack_require__.e(/*! require.ensure | components/aui-header/aui-header */ "components/aui-header/aui-header").then((function () {return resolve(__webpack_require__(/*! @/components/aui-header/aui-header.vue */ 84));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiLoading = function auiLoading() {__webpack_require__.e(/*! require.ensure | components/aui-loading/aui-loading */ "components/aui-loading/aui-loading").then((function () {return resolve(__webpack_require__(/*! @/components/aui-loading/aui-loading.vue */ 77));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { auiLoading: auiLoading, auiHeader: auiHeader }, data: function data() {return { auiLoading: { show: false, type: 4, direction: 'col', msg: '加载中', mask: false }, contentHeight: null };}, onShow: function onShow() {var _this = this; // this.auiLoading.show = true;
+var auiHeader = function auiHeader() {__webpack_require__.e(/*! require.ensure | components/aui-header/aui-header */ "components/aui-header/aui-header").then((function () {return resolve(__webpack_require__(/*! @/components/aui-header/aui-header.vue */ 104));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var auiLoading = function auiLoading() {__webpack_require__.e(/*! require.ensure | components/aui-loading/aui-loading */ "components/aui-loading/aui-loading").then((function () {return resolve(__webpack_require__(/*! @/components/aui-loading/aui-loading.vue */ 97));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { auiLoading: auiLoading, auiHeader: auiHeader }, data: function data() {return { auiLoading: { show: false, type: 4, direction: 'col', msg: '加载中', mask: false }, contentHeight: null };}, onShow: function onShow() {var _this = this; // this.auiLoading.show = true;
     // setTimeout(function(){
     // 	_this.auiLoading.show = false;
     // },300)
