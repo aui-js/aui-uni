@@ -7,7 +7,7 @@
 			<view class="aui-btn aui-btn-blue" @click.stop="showPicker($event)" data-layer="1">picker一级联动</view>
 			<view class="aui-btn aui-btn-blue" @click.stop="showPicker($event)" data-layer="2">picker二级联动</view>
 			<view class="aui-btn aui-btn-blue" @click.stop="showPicker($event)" data-layer="3">picker三级联动</view>	
-			<view class="aui-btn aui-btn-blue" @click.stop="showPicker($event)">picker无限级联动</view>	
+			<view class="aui-btn aui-btn-blue" @click.stop="showPickerMax($event)">picker无限级联动</view>	
 		</view>
 		<aui-picker 
 			ref="picker" 
@@ -35,7 +35,7 @@
 				auiPicker: {
 					title: 'picker多级联动',
 					layer: null,
-					data: cityData
+					data: []
 				},
 			}
 		},
@@ -63,6 +63,47 @@
 			showPicker(e){
 				const _this = this;
 				_this.auiPicker.layer = Number(e.currentTarget.dataset.layer) || null;
+				_this.auiPicker.data = cityData;
+				_this.$refs.picker.open().then(function(){
+					console.log('picker打开');
+				});
+			},
+			//显示picker多级联动弹窗
+			showPickerMax(e){
+				const _this = this;
+				_this.auiPicker.layer = null;
+				_this.auiPicker.data=[{
+					id: "1001",
+					name: "一级菜单1",
+					children: [{
+						id: "1002",
+						name: "二级菜单1-1",
+						children: [{
+							id: "1003",
+							name: "三级菜单1-1",
+							children: [{
+								id: "1004",
+								name: "四级菜单1-1"
+							}]
+						}]
+					}]
+				},
+				{
+					id: "1005",
+					name: "一级菜单2",
+					children: [{
+						id: "1006",
+						name: "二级菜单2-1",
+						children: [{
+							id: "1007",
+							name: "三级菜单2-1",
+							children: [{
+								id: "1008",
+								name: "四级菜单2-1"
+							}]
+						}]
+					}]
+				}];
 				_this.$refs.picker.open().then(function(){
 					console.log('picker打开');
 				});

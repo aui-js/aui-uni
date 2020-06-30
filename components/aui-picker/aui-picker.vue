@@ -6,7 +6,7 @@
 		<view class="aui-mask" @click.stop="close"></view>
 		<view class="aui-picker-main">
 	        <view class="aui-picker-header">
-	            <view class="aui-picker-title"></view>
+	            <view class="aui-picker-title" v-if="title">{{title}}</view>
 	            <view class="aui-picker-close iconfont iconclose" @click.stop="close"></view>
 	        </view>
 	        <view class="aui-picker-nav">
@@ -16,12 +16,14 @@
 					:key="index" 
 					:data-index="index" 
 					:class="[index==navCurrentIndex ? 'active' : '', 'aui-picker-navitem-'+index]" 
+					:style="{margin: nav.length>2 ? '0 10px 0 0' : '0 40px 0 0'}"
 					@click.stop="_changeNav($event)"
 				>{{item.name}}</view>				
 				<view class="aui-picker-navitem"									
 					:key="nav.length" 
 					:data-index="nav.length"
 					:class="[nav.length==navCurrentIndex ? 'active' : '', 'aui-picker-navitem-'+nav.length]" 
+					:style="{margin: nav.length>2 ? '0 10px 0 0' : '0 40px 0 0'}"
 					@click.stop="_changeNav($event)"
 				>请选择</view>
 				<view class="aui-picker-navborder" :style="{left: navBorderLeft+'px'}"></view>
@@ -35,27 +37,29 @@
 						:class="[index==navCurrentIndex ? 'active' : '']"
 					>
 						<view class="aui-picker-list-warp" v-if="index == 0">
-							<div class="aui-picker-item" 
+							<view class="aui-picker-item" 
 								v-for="(item, key) in items" 
 								v-if="item.pid=='0'"
+								:key="key"
 								:data-pindex="index"
 								:data-index="key"
 								:data-id="item.id" 
 								:data-pid="item.pid"
 								:data-name="item.name"
 								@click.stop="_chooseItem($event)"
-							>{{item.name}}</div>
+							>{{item.name}}</view>
 						</view>
 						<view class="aui-picker-list-warp" v-else>
-							<div class="aui-picker-item" 
+							<view class="aui-picker-item" 
 								v-for="(item, key) in queryItems[index-1]"
+								:key="key"
 								:data-pindex="index"
 								:data-index="key"
 								:data-id="item.id"
 								:data-pid="item.pid"
 								:data-name="item.name"
 								@click.stop="_chooseItem($event)"
-							>{{item.name}}</div>
+							>{{item.name}}</view>
 						</view>
 					</view>
 				</view>
@@ -99,9 +103,14 @@
 		},
 		created(){
 			const _this = this;
-			var data = _this.data;
-			_this.items = _this._flatten(data, '0');
 		},
+		watch:{
+			data(){
+				const _this = this;
+				const data = _this.data;
+				_this.items = _this._flatten(data, '0')
+	　　　　}　　
+	　　},
 		mounted(){
 			
 		},
@@ -286,6 +295,7 @@
 		width: 100%;
 		min-height: 50px;
 		position: relative;
+		z-index: 999;
 	}
 	.aui-picker-header::after{
 		content: '';
@@ -335,6 +345,7 @@
 		height: 50px;
 		text-align: left;
 		padding: 0 20px;
+		margin: 0 0 1px 0;
 		justify-content: flex-start;
 		white-space: nowrap;
 		box-sizing: border-box;
@@ -355,16 +366,21 @@
 		z-index: 999;
 	}
 	.aui-picker-navitem{
+		width: 70px;
 		line-height: 50px;
 		font-size: 16px;
 		margin: 0 40px 0 0;
+		text-align: center;
 		display: inline-block;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 	}
 	.aui-picker-navitem.active{
 		color: #197DE0;
 	}
 	.aui-picker-navborder{
-		width: 50px;
+		width: 70px;
 		height: 3px;
 		background: #197DE0;
 		border-radius: 5px;
