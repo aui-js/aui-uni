@@ -92,7 +92,7 @@
 			};
 		},
 		created(){
-			var _this = this;
+			const _this = this;
 				
 		},
 		onLoad(){
@@ -100,7 +100,7 @@
 		},
 		methods:{
 			show(){
-				var _this = this;
+				const _this = this;
 				return new Promise(function(resolve, reject){
 					_this.SHOW = true;
 					_this.FADE = 1;					
@@ -108,10 +108,10 @@
 				});
 			},
 			hide(){
-				var _this = this;
+				const _this = this;
 				return new Promise(function(resolve, reject){
 					_this.FADE = 0;
-					var _hidetimer = setTimeout(()=>{
+					const _hidetimer = setTimeout(()=>{
 						_this.SHOW = false;
 						_this.FADE = -1;
 						clearTimeout(_hidetimer);
@@ -120,11 +120,11 @@
 				});
 			},
 			_btnTab(e){
-				var _this = this,
+				const _this = this,
 					index = Number(e.currentTarget.dataset.index);
 				_this.hide();
-				var _closetimer = setTimeout(()=>{
-					var data = {
+				const _closetimer = setTimeout(()=>{
+					const data = {
 						status: 0,
 						msg: index != 0 ? _this.items[index - 1].name : _this.cancel,
 						index: index
@@ -134,12 +134,12 @@
 				},100)
 			},
 			_btnTouchStart(e){
-				var _this = this,
+				const _this = this,
 					index = Number(e.currentTarget.dataset.index);
 				_this.touchIndex = index;
 			},
 			_btnTouchEnd(e){
-				var _this = this,
+				const _this = this,
 					index = Number(e.currentTarget.dataset.index);
 				_this.touchIndex = -1;	
 			},		
