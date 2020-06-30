@@ -1,1 +1,0 @@
-<view class="aui-footer row-before"><view class="aui-footer-list active" onclick="aui.openWin('index.html')"><view class="iconfont iconjs"></view><view class="aui-footer-text">API</view></view><view class="aui-footer-list" onclick="aui.openWin('demo/demo-index.html')"><view class="iconfont iconshilidaima"></view><view class="aui-footer-text">DEMO</view></view></view>

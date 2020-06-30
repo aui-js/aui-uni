@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "组件",
-  "usingComponents": {
-    "aui-header": "/components/aui-header/aui-header"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "实例",
-  "usingComponents": {
-    "aui-loading": "/components/aui-loading/aui-loading",
-    "aui-header": "/components/aui-header/aui-header"
-  }
-}

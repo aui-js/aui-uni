@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "actionmenu底部菜单",
-  "usingComponents": {
-    "aui-toast": "/components/aui-toast/aui-toast",
-    "aui-actionmenu": "/components/aui-actionmenu/aui-actionmenu",
-    "aui-header": "/components/aui-header/aui-header"
-  }
-}

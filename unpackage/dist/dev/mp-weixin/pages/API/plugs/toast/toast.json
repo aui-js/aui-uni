@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "toast消息提示弹窗",
-  "usingComponents": {
-    "aui-toast": "/components/aui-toast/aui-toast",
-    "aui-header": "/components/aui-header/aui-header"
-  }
-}

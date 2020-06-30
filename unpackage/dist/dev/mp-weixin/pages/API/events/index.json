@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "事件",
-  "usingComponents": {
-    "aui-header": "/components/aui-header/aui-header"
-  }
-}

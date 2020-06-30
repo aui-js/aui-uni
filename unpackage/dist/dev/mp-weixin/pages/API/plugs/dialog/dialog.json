@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "dialog模态弹窗",
-  "usingComponents": {
-    "aui-toast": "/components/aui-toast/aui-toast",
-    "aui-dialog": "/components/aui-dialog/aui-dialog",
-    "aui-header": "/components/aui-header/aui-header"
-  }
-}
