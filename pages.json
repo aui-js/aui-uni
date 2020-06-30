@@ -47,6 +47,12 @@
             "style" : {
 				"navigationBarTitleText": "dialog模态弹窗"
 			}
+        } 
+        ,{
+            "path" : "pages/API/plugs/picker/picker",
+            "style" : {
+            	"navigationBarTitleText": "picker多级联动弹窗"
+            }
         }
 		,{
 		    "path" : "pages/API/plugs/poster/poster",
@@ -71,7 +77,7 @@
             "style" : {
 				"navigationBarTitleText": "实例"
 			}
-        } 
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",

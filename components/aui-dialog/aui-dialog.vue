@@ -5,7 +5,8 @@
 			:class="{
 				'aui-dialog-main-style-1': theme==1, 
 				'aui-dialog-main-style-2': theme==2, 
-				'aui-dialog-main-style-3': theme==3
+				'aui-dialog-main-style-3': theme==3,
+				'aui-dialog-main-style-4': theme==4
 			}"
 		>
 			<view class="aui-dialog-title" v-if="title">{{title}}</view>
@@ -18,7 +19,7 @@
 					</view>
 				</view>
 			</view>
-			<view class="aui-dialog-down">
+			<view class="aui-dialog-down" :style="{padding: theme==4 ? (btns.length <= 1 ? '0 40px' : '0 20px') : ''}">
 				<view 
 					class="aui-dialog-down-btn"
 					v-for="(item, index) in btns" 
@@ -95,7 +96,7 @@
 		},
 		created(){
 			var _this = this;
-					
+				
 		},
 		onLoad(){
 			
@@ -165,6 +166,8 @@
 			_btnTouchStart(e){
 				var _this = this,
 					index = Number(e.currentTarget.dataset.index);
+					console.log(_this.theme);
+				_this.touchStyle.background=_this.theme==4 ? "#CDCDCD" : "#EFEFEF";
 				_this.touchIndex = index;
 			},
 			_btnTouchEnd(e){
@@ -382,6 +385,34 @@
 		border-bottom-right-radius: 13px;
 	}
 	.aui-dialog-main-style-3 .aui-dialog-down-btn:first-child:after{display: none;}
+	.aui-dialog-main-style-4 .aui-dialog-down{
+		height: 60px;
+		padding: 0 20px;
+		box-sizing: border-box;
+		display: flex;
+		justify-content: center;
+	}
+	.aui-dialog-main-style-4 .aui-dialog-down-btn{
+		height: 40px;
+		line-height: 40px;
+		justify-content: center;
+		margin: 0 10px;
+		display: flex;
+		flex: 1;
+		padding: 0 15px;
+		box-sizing: border-box;
+		border-radius: 30px;
+		background: #197DE0;
+		color: #FFF;
+	}
+	.aui-dialog-main-style-4 .aui-dialog-down-btn.aui-dialog-down-cancel-btn{
+		background: #F4F4F4;
+		color: #646464;
+	}
+	.aui-dialog-main-style-4 .aui-dialog-down-btn.aui-dialog-down-delete-btn{
+		background: #FF5555;
+		color: #FFFFFF;
+	}
 	/*input  输入弹窗样式设置*/
 	.aui-dialog-input-list{
 		width: 100%;

@@ -33,7 +33,7 @@
 					<view class="aui-list-left">loading 加载动画</view>
 					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
 				</view>
-				<view class="aui-list" onclick="aui.openWin('picker.html')">
+				<view class="aui-list" @click.stop="openWin('picker/picker')">
 					<view class="aui-list-left">picker 多级联动</view>
 					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
 				</view>

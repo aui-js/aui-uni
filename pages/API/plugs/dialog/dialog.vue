@@ -17,6 +17,10 @@
 			<view class="aui-btn aui-btn-blue dialog-8" @click.stop="prompt(2)">prompt输入弹窗</view>
 			<view class="aui-list-title">3、两个以上按钮</view>
 			<view class="aui-btn aui-btn-blue dialog-9" @click.stop="confirmMoreBtns(3)">多按钮弹窗</view>
+			<view class="aui-list-title">3、带背景色按钮</view>
+			<view class="aui-btn aui-btn-blue dialog-10" @click.stop="alert(4)">alert单按钮提醒弹窗</view>
+			<view class="aui-btn aui-btn-blue dialog-11" @click.stop="confirm(4)">confirm双按钮提醒弹窗</view>
+			<view class="aui-btn aui-btn-blue dialog-12" @click.stop="Delete(4)">delete删除提醒弹窗</view>
 		</view>
 		<aui-toast
 			ref="toast"
@@ -111,7 +115,7 @@
 				var _this = this;
 				_this.auiDialog.title = '提示';
 				_this.auiDialog.msg = '您点击了alert单按钮模态弹窗！';
-				_this.auiDialog.btns = [{name: '确定', color: '#197DE0'}];
+				_this.auiDialog.btns = [{name: '确定', color: theme != 4 ? '#197DE0' :''}];
 				_this.auiDialog.items = [];
 				_this.auiDialog.theme = theme;
 				_this.$refs.dialog.show();
