@@ -112,7 +112,7 @@
 			pickerCallback(e){
 				const _this = this;
 				console.log(e);
-				var result = '';
+				const result = '';
 				e.data.forEach(function(item, index){
 					result += item.name + '   ';
 				});

@@ -220,14 +220,14 @@
 				}
 			},
 			_btnTouchStart(e){
-				var _this = this,
+				const _this = this,
 					index = Number(e.currentTarget.dataset.index),
 					pindex = Number(e.currentTarget.dataset.pindex);
 				_this.touchConfig.index = index;
 				_this.touchConfig.pindex = pindex;
 			},
 			_btnTouchEnd(e){
-				var _this = this,
+				const _this = this,
 					index = Number(e.currentTarget.dataset.index),
 					pindex = Number(e.currentTarget.dataset.pindex);
 				_this.touchConfig.index = -1;
@@ -240,10 +240,10 @@
 			},
 			//根据id查询对应的数据(如查询id=10100对应的对象)
 			_deepQuery(tree, id) {
-			    var isGet = false;
-			    var retNode = null;
+			    const isGet = false;
+			    const retNode = null;
 			    function deepSearch(tree, id){
-			        for(var i = 0; i < tree.length; i++) {
+			        for(const i = 0; i < tree.length; i++) {
 			            if(tree[i].children && tree[i].children.length > 0) {
 			                deepSearch(tree[i].children, id);
 			            }
