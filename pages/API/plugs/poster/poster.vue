@@ -48,7 +48,7 @@
 				auiPoster: {					
 					mask: true,
 					maskTapClose: false,
-					image: 'https://xbjz1.oss-cn-beijing.aliyuncs.com/upload/default/share.png'
+					image: 'http://img1.imgtn.bdimg.com/it/u=2686643868,1355628031&fm=26&gp=0.jpg'
 				}
 			}
 		},

@@ -82,7 +82,7 @@
 	.aui-poster-main{width: 80%; opacity: 0; position: fixed; top: -50vh; left: 10%; z-index: 999;}
 	.aui-poster-in .aui-poster-main{animation: aui-slide-up_to_middle .3s ease-out forwards;}
 	.aui-poster-out .aui-poster-main{animation: aui-slide-middle_to_up .2s ease-out forwards;}
-	.aui-poster-main .aui-poster-img{width: 100%; pointer-events: auto; position: relative; z-index: 999;}
+	.aui-poster-main .aui-poster-img{width: 100%; border-radius: 10px; pointer-events: auto; position: relative; z-index: 999;}
 	.aui-poster-main .aui-poster-close{width: 30px; position: absolute; top: -webkit-calc(100% - 10px); top: calc(100% - 10px); left: 50%; -moz-transform: translate(-50%,0); -ms-transform: translate(-50%,0); -webkit-transform: translate(-50%,0); transform: translate(-50%,0); z-index: 998;}
 	
 </style>
