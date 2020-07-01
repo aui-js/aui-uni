@@ -175,7 +175,7 @@
 					_this.navBorderLeft = data.left + 20;
 				}).exec();
 			},
-			//选择数据
+			//数据选择
 			_chooseItem(e){
 				const _this = this;
 				const id = e.currentTarget.dataset.id;
@@ -218,21 +218,7 @@
 						_this.$emit("callback", {status: 0, data: _this.result});
 					});
 				}
-			},
-			_btnTouchStart(e){
-				const _this = this,
-					index = Number(e.currentTarget.dataset.index),
-					pindex = Number(e.currentTarget.dataset.pindex);
-				_this.touchConfig.index = index;
-				_this.touchConfig.pindex = pindex;
-			},
-			_btnTouchEnd(e){
-				const _this = this,
-					index = Number(e.currentTarget.dataset.index),
-					pindex = Number(e.currentTarget.dataset.pindex);
-				_this.touchConfig.index = -1;
-				_this.touchConfig.pindex = -1;
-			},	
+			},			
 			//递归遍历——将树形结构数据转化为数组格式
 			_flatten(tree, pid) {
 				return tree.reduce((arr, {id, name, children = []}) =>
@@ -240,10 +226,10 @@
 			},
 			//根据id查询对应的数据(如查询id=10100对应的对象)
 			_deepQuery(tree, id) {
-			    const isGet = false;
-			    const retNode = null;
+			    let isGet = false;
+			    let retNode = null;
 			    function deepSearch(tree, id){
-			        for(const i = 0; i < tree.length; i++) {
+			        for(let i = 0; i < tree.length; i++) {
 			            if(tree[i].children && tree[i].children.length > 0) {
 			                deepSearch(tree[i].children, id);
 			            }
@@ -271,6 +257,20 @@
 					return true;
 				}
 			},
+			_btnTouchStart(e){
+				const _this = this,
+					index = Number(e.currentTarget.dataset.index),
+					pindex = Number(e.currentTarget.dataset.pindex);
+				_this.touchConfig.index = index;
+				_this.touchConfig.pindex = pindex;
+			},
+			_btnTouchEnd(e){
+				const _this = this,
+					index = Number(e.currentTarget.dataset.index),
+					pindex = Number(e.currentTarget.dataset.pindex);
+				_this.touchConfig.index = -1;
+				_this.touchConfig.pindex = -1;
+			},	
 		}
 	}
 </script>
