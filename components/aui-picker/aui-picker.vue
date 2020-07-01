@@ -16,14 +16,14 @@
 					:key="index" 
 					:data-index="index" 
 					:class="[index==navCurrentIndex ? 'active' : '', 'aui-picker-navitem-'+index]" 
-					:style="{margin: nav.length>2 ? '0 10px 0 0' : '0 40px 0 0'}"
+					:style="{margin: nav.length>2 ? '0 10px 0 0' : '0 30px 0 0'}"
 					@click.stop="_changeNav($event)"
 				>{{item.name}}</view>				
 				<view class="aui-picker-navitem"									
 					:key="nav.length" 
 					:data-index="nav.length"
 					:class="[nav.length==navCurrentIndex ? 'active' : '', 'aui-picker-navitem-'+nav.length]" 
-					:style="{margin: nav.length>2 ? '0 10px 0 0' : '0 40px 0 0'}"
+					:style="{margin: nav.length>2 ? '0 10px 0 0' : '0 30px 0 0'}"
 					@click.stop="_changeNav($event)"
 				>请选择</view>
 				<view class="aui-picker-navborder" :style="{left: navBorderLeft+'px'}"></view>
@@ -46,7 +46,12 @@
 								:data-id="item.id" 
 								:data-pid="item.pid"
 								:data-name="item.name"
+								:class="{'active': result.length>index && result[index].id==item.id}"
+								:style="{'background': touchConfig.index==key && touchConfig.pindex==index ? touchConfig.style.background : ''}"
 								@click.stop="_chooseItem($event)"
+								@touchstart="_btnTouchStart($event)"
+								@touchmove="_btnTouchEnd($event)"
+								@touchend="_btnTouchEnd($event)"
 							>{{item.name}}</view>
 						</view>
 						<view class="aui-picker-list-warp" v-else>
@@ -58,7 +63,12 @@
 								:data-id="item.id"
 								:data-pid="item.pid"
 								:data-name="item.name"
+								:class="{'active': result.length>index && result[index].id==item.id}"
+								:style="{'background': touchConfig.index==key && touchConfig.pindex==index ? touchConfig.style.background : ''}"
 								@click.stop="_chooseItem($event)"
+								@touchstart="_btnTouchStart($event)"
+								@touchmove="_btnTouchEnd($event)"
+								@touchend="_btnTouchEnd($event)"
 							>{{item.name}}</view>
 						</view>
 					</view>
@@ -97,8 +107,16 @@
 				items: [],
 				queryItems: [],
 				navCurrentIndex: 0,
-				navBorderLeft: 20,
+				navBorderLeft: 40,
 				result: [],
+				touchConfig: {
+					index: -1,
+					pindex: -1,
+					style: {
+						color: '#197DE0',
+						background: '#EFEFEF'
+					} 
+				}
 			}
 		},
 		created(){
@@ -143,7 +161,7 @@
 				const _this = this;
 				_this.queryItems = [];
 				_this.nav = [];
-				_this.navBorderLeft = 20;
+				_this.navBorderLeft = 40;
 				_this.navCurrentIndex = 0;
 				_this.result = [];
 			},
@@ -154,7 +172,7 @@
 				_this.navCurrentIndex = index;
 				const _el = uni.createSelectorQuery().in(this).select(".aui-picker-navitem-"+index);
 				_el.boundingClientRect(data => {
-					_this.navBorderLeft = data.left;
+					_this.navBorderLeft = data.left + 20;
 				}).exec();
 			},
 			//选择数据
@@ -190,7 +208,7 @@
 					const _el = uni.createSelectorQuery().in(this).select(".aui-picker-navitem-"+_this.navCurrentIndex);
 					setTimeout(()=>{
 						_el.boundingClientRect(data => {
-							_this.navBorderLeft = data.left;
+							_this.navBorderLeft = data.left + 20;
 						}).exec();
 					},100)
 				}
@@ -201,6 +219,20 @@
 					});
 				}
 			},
+			_btnTouchStart(e){
+				var _this = this,
+					index = Number(e.currentTarget.dataset.index),
+					pindex = Number(e.currentTarget.dataset.pindex);
+				_this.touchConfig.index = index;
+				_this.touchConfig.pindex = pindex;
+			},
+			_btnTouchEnd(e){
+				var _this = this,
+					index = Number(e.currentTarget.dataset.index),
+					pindex = Number(e.currentTarget.dataset.pindex);
+				_this.touchConfig.index = -1;
+				_this.touchConfig.pindex = -1;
+			},	
 			//递归遍历——将树形结构数据转化为数组格式
 			_flatten(tree, pid) {
 				return tree.reduce((arr, {id, name, children = []}) =>
@@ -366,10 +398,10 @@
 		z-index: 999;
 	}
 	.aui-picker-navitem{
-		width: 70px;
+		width: 80px;
 		line-height: 50px;
 		font-size: 16px;
-		margin: 0 40px 0 0;
+		margin: 0 30px 0 0;
 		text-align: center;
 		display: inline-block;
 		overflow: hidden;
@@ -380,13 +412,13 @@
 		color: #197DE0;
 	}
 	.aui-picker-navborder{
-		width: 70px;
+		width: 40px;
 		height: 3px;
 		background: #197DE0;
 		border-radius: 5px;
 		transition: left .2s;
 		position: absolute;
-		left: 20px;
+		left: 40px;
 		bottom: 0;
 	}
 	.aui-picker-lists{
@@ -415,8 +447,8 @@
 	}
 	.aui-picker-item{
 		width: 100%;
-		height: 44px;
-		line-height: 44px;
+		height: 50px;
+		line-height: 50px;
 		padding: 0 15px;
 		box-sizing: border-box;
 		font-size: 15px;
