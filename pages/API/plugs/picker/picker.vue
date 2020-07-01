@@ -116,7 +116,17 @@
 				e.data.forEach(function(item, index){
 					result += item.name + '   ';
 				});
-				alert(result);
+				uni.showModal({
+				    title: '提示',
+				    content: result,
+				    success: function (res) {
+				        if (res.confirm) {
+				            console.log('用户点击确定');
+				        } else if (res.cancel) {
+				            console.log('用户点击取消');
+				        }
+				    }
+				});
 			}
 		}
 	}
