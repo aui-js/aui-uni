@@ -303,12 +303,12 @@
 	}
 	.aui-picker-main{
 		width: 100vw;
-		height: 60vh;
+		height: 50vh;
 		background: #FFF;
-		border-radius: 10px 10px 0 0;
+		border-radius: 15px 15px 0 0;
 		position: absolute;
 		left: 0px;
-		bottom: -60vh;		
+		bottom: -50vh;		
 		z-index: 999;
 	}
 	.aui-picker.aui-picker-in .aui-picker-main{
@@ -328,6 +328,8 @@
 		min-height: 50px;
 		position: relative;
 		z-index: 999;
+		background: #F2F2F2;
+		border-radius: 15px 15px 0 0;
 	}
 	.aui-picker-header::after{
 		content: '';
@@ -416,7 +418,7 @@
 		height: 3px;
 		background: #197DE0;
 		border-radius: 5px;
-		transition: left .2s;
+		transition: left .15s;
 		position: absolute;
 		left: 40px;
 		bottom: 0;
