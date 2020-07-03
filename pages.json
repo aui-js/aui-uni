@@ -3,7 +3,7 @@
 		{
 			"path": "pages/api/index",
 			"style": {
-				"navigationBarTitleText": "aui"
+				"navigationBarTitleText": "接口"
 			}
 		}
 		,{
