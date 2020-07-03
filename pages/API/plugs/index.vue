@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<!-- #ifndef MP -->
-		<aui-header title="组件" :left="{use: true, click: closeWin}" @headerHeight="headerHeight"></aui-header>
+		<aui-header title="插件" :left="{use: true, click: closeWin}" @headerHeight="headerHeight"></aui-header>
 		<!-- #endif -->
 		<view class="aui-content" :style="{height: contentHeight}">
 			<view class="aui-lists">

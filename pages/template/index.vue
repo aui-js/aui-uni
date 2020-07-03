@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<!-- #ifndef MP -->
-		<aui-header title="实例" :right="{use: true, click: openPopMenu}" @headerHeight="headerHeight"></aui-header>
+		<aui-header title="模板" :right="{use: true, click: openPopMenu}" @headerHeight="headerHeight"></aui-header>
 		<!-- #endif -->
 		<view class="aui-content" :style="{height: contentHeight}">
 			<view class="aui-lists">

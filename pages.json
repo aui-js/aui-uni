@@ -1,81 +1,87 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/API/index",
+			"path": "pages/api/index",
 			"style": {
 				"navigationBarTitleText": "aui"
 			}
 		}
 		,{
-		    "path" : "pages/API/devices/index",
+		    "path" : "pages/api/devices/index",
 		    "style" : {
 				"navigationBarTitleText": "设备"
 			}
 		}
 		,{
-		    "path" : "pages/API/events/index",
+		    "path" : "pages/api/events/index",
 		    "style" : {
 				"navigationBarTitleText": "事件"
 			}
 		}
 		,{
-		    "path" : "pages/API/plugs/index",
+		    "path" : "pages/api/plugs/index",
 		    "style" : {
-				"navigationBarTitleText": "组件"
+				"navigationBarTitleText": "插件"
 			}
 		}
 		,{
-		    "path" : "pages/API/plugs/actionmenu/actionmenu",
+		    "path" : "pages/api/plugs/actionmenu/actionmenu",
 		    "style" : {
 				"navigationBarTitleText": "actionmenu底部菜单"
 			}
 		}
 		,{
-		    "path" : "pages/API/plugs/actionsheet/actionsheet",
+		    "path" : "pages/api/plugs/actionsheet/actionsheet",
 		    "style" : {
 				"navigationBarTitleText": "actionsheet操作弹窗"
 			}
 		}
         ,{
-            "path" : "pages/API/plugs/loading/loading",
+            "path" : "pages/api/plugs/loading/loading",
             "style" : {
 				"navigationBarTitleText": "loading加载弹窗"
 			}
         }
         ,{
-            "path" : "pages/API/plugs/dialog/dialog",
+            "path" : "pages/api/plugs/dialog/dialog",
             "style" : {
 				"navigationBarTitleText": "dialog模态弹窗"
 			}
         } 
         ,{
-            "path" : "pages/API/plugs/picker/picker",
+            "path" : "pages/api/plugs/picker/picker",
             "style" : {
             	"navigationBarTitleText": "picker多级联动弹窗"
             }
         }
 		,{
-		    "path" : "pages/API/plugs/poster/poster",
+		    "path" : "pages/api/plugs/poster/poster",
 		    "style" : {
 				"navigationBarTitleText": "poster广告弹窗"
 			}
 		}
         ,{
-            "path" : "pages/API/plugs/toast/toast",
+            "path" : "pages/api/plugs/toast/toast",
             "style" : {
 				"navigationBarTitleText": "toast消息提示弹窗"
 			}
         }				
 		,{
-		    "path" : "pages/API/address/index",
+		    "path" : "pages/api/address/index",
 		    "style" : {
 				"navigationBarTitleText": "位置"
 			}
 		}
+		,{
+		    "path" : "pages/ui/index",
+		    "style" : {
+				"navigationBarTitleText": "组件"
+			}
+		}
         ,{
-            "path" : "pages/demo/index",
+            "path" : "pages/template/index",
             "style" : {
-				"navigationBarTitleText": "实例"
+				"navigationBarTitleText": "模板"
 			}
         }
     ],
@@ -94,17 +100,30 @@
 		"borderStyle": "black",
 		"backgroundColor": "#ffffff",
 		"list": [{
-				"pagePath": "pages/API/index",
-				"iconPath": "static/tab-api.png",
-				"selectedIconPath": "static/tab-api-active.png",
-				"text": "API"
+				"pagePath": "pages/api/index",
+				"iconPath": "static/tabbar/tab-api.png",
+				"selectedIconPath": "static/tabbar/tab-api-active.png",
+				"text": "接口"
 			},
 			{
-				"pagePath": "pages/demo/index",
-				"iconPath": "static/tab-demo.png",
-				"selectedIconPath": "static/tab-demo-active.png",
-				"text": "DEMO"
+				"pagePath": "pages/ui/index",
+				"iconPath": "static/tabbar/tab-ui.png",
+				"selectedIconPath": "static/tabbar/tab-ui-active.png",
+				"text": "组件"
+			},
+			{
+				"pagePath": "pages/template/index",
+				"iconPath": "static/tabbar/tab-template.png",
+				"selectedIconPath": "static/tabbar/tab-template-active.png",
+				"text": "模板"
 			}
+			// ,
+			// {
+			// 	"pagePath": "https://www.kancloud.cn/chen-wanchun/aui-js/1785087",
+			// 	"iconPath": "static/tabbar/tab-doc.png",
+			// 	"selectedIconPath": "static/tabbar/tab-doc-active.png",
+			// 	"text": "文档"
+			// }
 		]
 	}
 }

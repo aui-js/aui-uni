@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<!-- #ifndef MP -->
-		<aui-header title="aui-uni" :right="{use: true, click: openPopMenu}" @headerHeight="headerHeight"></aui-header>
+		<aui-header title="接口" :right="{use: true, click: openPopMenu}" @headerHeight="headerHeight"></aui-header>
 		<!-- #endif -->
 		<view class="aui-content" :style="{height: contentHeight}">
 			<view class="aui-lists">
@@ -37,7 +37,7 @@
 						<!-- #ifdef MP -->
 						<img src="@/static/index-2.png" alt="">
 						<!-- #endif -->
-						组件
+						插件
 					</view>
 					<view class="aui-list-right"><view class="iconfont aui-btn-right iconright1"></view></view>
 				</view>

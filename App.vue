@@ -24,12 +24,23 @@
 	}
 	uni-tabbar .uni-tabbar-border{background: rgba(100,100,100,.3) !important; transform: scaleY(.3) !important;}
 	uni-tabbar .uni-tabbar__icon{
-		width: 20px; 
-		height: 20px; 
+		width: 30px; 
+		height: 30px; 
 		/* #ifdef MP */
-		width: 18px;
-		height: 18px; 
+		width: 25px;
+		height: 25px; 
 		/* #endif */
-		margin-top: 10px;
+		margin-top: 5px;
 	}	
+	uni-tabbar .uni-tabbar__icon img{
+		width: 30px;
+		height: 30px; 
+		/* #ifdef MP */
+		width: 25px;
+		height: 25px; 
+		/* #endif */
+	}
+	uni-tabbar .uni-tabbar__label{
+		top: -5px;
+	}
 </style>
