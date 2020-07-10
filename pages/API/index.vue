@@ -4,6 +4,10 @@
 		<aui-header title="接口" :right="{use: true, click: openPopMenu}" @headerHeight="headerHeight"></aui-header>
 		<!-- #endif -->
 		<view class="aui-content" :style="{height: contentHeight}">
+			<view class="content-top">
+				<view>Api</view>
+				<text>api接口，常用弹窗插件</text>
+			</view>
 			<view class="aui-lists">
 				<view class="aui-list" @click.stop="openWin('devices/index')">
 					<view class="aui-list-left">
@@ -147,5 +151,7 @@
 		height: calc(100vh - 50px - 26px);
 		/* #endif */
 	}
-	.aui-list-left img{width: 18px; height: 18px; margin: -0 10px 0 0; display: inline-block; vertical-align: middle; position: relative; top: -1px;}
+	.content-top{width: 100%; padding: 20px; box-sizing: border-box;}
+	.content-top view{width: 100%; line-height: 40px; font-size: 18px; color: #333;}
+	.content-top text{width: 100%; line-height: 20px; font-size: 13px; color: #888;}
 </style>
