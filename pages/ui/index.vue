@@ -13,27 +13,27 @@
 					<view class="aui-grid-icon"><text class="iconfont iconcolor" style="color: #EE0000;"></text></view>
 					<view class="aui-grid-text">Color色彩</view>
 				</view>
-				<view class="aui-grid" col="3" @click.stop="aui.openWin('button/index.html')">
+				<view class="aui-grid" col="3" @click.stop="openWin('button/index')">
 					<view class="aui-grid-icon"><text class="iconfont iconanniu" style="color: #eb077a;"></text></view>
 					<view class="aui-grid-text">Button按钮</view>
 				</view>
-				<view class="aui-grid" col="3" @click.stop="aui.openWin('tag/index.html')">
+				<view class="aui-grid" col="3" @click.stop="openWin('tag/index')">
 					<view class="aui-grid-icon"><text class="iconfont icontag" style="font-size: 25px; color: #fe2f24;"></text></view>
 					<view class="aui-grid-text">Tag标签</view>
 				</view>
-				<view class="aui-grid" col="3" @click.stop="aui.openWin('badge/index.html')">
+				<view class="aui-grid" col="3" @click.stop="openWin('badge/index')">
 					<view class="aui-grid-icon"><text class="iconfont iconbadge" style="font-size: 28px; color: #fec002;"></text></view>
 					<view class="aui-grid-text">Badge数字角标</view>
 				</view>
-				<view class="aui-grid" col="3" @click.stop="aui.openWin('list/index.html')">
+				<view class="aui-grid" col="3" @click.stop="openWin('list/index')">
 					<view class="aui-grid-icon"><text class="iconfont iconlist" style="font-size: 28px; color: #add51d;"></text></view>
 					<view class="aui-grid-text">List列表</view>
 				</view>
-				<view class="aui-grid" col="3" @click.stop="aui.openWin('grid/index.html')">
+				<view class="aui-grid" col="3" @click.stop="openWin('grid/index')">
 					<view class="aui-grid-icon"><text class="iconfont icongrid" style="font-size: 22px; color: #fe6503;"></text></view>
 					<view class="aui-grid-text">Grid九宫格</view>
 				</view>
-				<view class="aui-grid" col="3" @click.stop="aui.openWin('card/index.html')">
+				<view class="aui-grid" col="3" @click.stop="openWin('card/index')">
 					<view class="aui-grid-icon"><text class="iconfont iconheadlines" style="color: #03A9F4;"></text></view>
 					<view class="aui-grid-text">Card卡片</view>
 				</view>
