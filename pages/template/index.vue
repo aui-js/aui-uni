@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<!-- #ifndef MP -->
-		<aui-header title="模板" :right="{use: true, click: openPopMenu}" @headerHeight="headerHeight"></aui-header>
+		<aui-header title="模板" @headerHeight="headerHeight"></aui-header>
 		<!-- #endif -->
 		<view class="aui-content" :style="{height: contentHeight}">
 			<view class="content-top">
@@ -154,7 +154,7 @@
 	}
 	.aui-content{
 		/* #ifdef H5 */
-		height: calc(100vh - 50px - 44px);
+		height: calc(100vh - 50px - 50px);
 		/* #endif */		
 		/* #ifdef MP */
 		height: 100vh;

@@ -142,7 +142,7 @@
 	}
 	.aui-content{
 		/* #ifdef H5 */
-		height: calc(100vh - 50px - 44px);
+		height: calc(100vh - 50px - 50px);
 		/* #endif */		
 		/* #ifdef MP */
 		height: 100vh;

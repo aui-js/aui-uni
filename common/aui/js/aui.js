@@ -49,6 +49,25 @@ const aui = {
 			return true;
 		}
 	},
+	//数组去重
+	uniq(array){
+	    var temp = []; //一个新的临时数组
+	    for(var i = 0; i < array.length; i++){
+	        if(temp.indexOf(array[i]) == -1){
+	            temp.push(array[i]);
+	        }
+	    }
+	    return temp;
+	},
+	// 复制到剪切板
+	copy(str){
+		var save = function (e){
+			e.clipboardData.setData('text/plain',str);//clipboardData对象
+			e.preventDefault();//阻止默认行为
+		};
+		document.addEventListener('copy',save);
+		return document.execCommand("copy");//使文档处于可编辑状态，否则无效
+	},	
 }
 export {
 	aui

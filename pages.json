@@ -78,6 +78,12 @@
 				"navigationBarTitleText": "组件"
 			}
 		}
+		,{
+		    "path" : "pages/ui/color/index",
+		    "style" : {
+				"navigationBarTitleText": "Color-颜色"
+			}
+		}
         ,{
             "path" : "pages/template/index",
             "style" : {

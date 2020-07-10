@@ -1,9 +1,14 @@
 .aui-content{
 	width: 100%;
 	height: 100vh;
-	/* #ifndef MP */
-	height: -webkit-calc(100vh - 44px);
-	height: calc(100vh - 44px);
+	/* #ifdef H5 */
+	height: calc(100vh - 50px);
+	/* #endif */		
+	/* #ifdef MP */
+	height: 100vh;
+	/* #endif */
+	/* #ifdef APP-PLUS */
+	height: calc(100vh - 50px);
 	/* #endif */
 	background: #EFEFEF;
 	overflow-y: scroll;

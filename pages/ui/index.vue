@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<!-- #ifndef MP -->
-		<aui-header title="组件" :right="{use: true, click: openPopMenu}" @headerHeight="headerHeight"></aui-header>
+		<aui-header title="组件" @headerHeight="headerHeight"></aui-header>
 		<!-- #endif -->
 		<view class="aui-content" :style="{height: contentHeight}">
 			<view class="content-top">
@@ -9,31 +9,31 @@
 				<text>基础组件、常用组件</text>
 			</view>
 			<view class="aui-grids">
-				<view class="aui-grid" col="3" onclick="aui.openWin('color/index.html')">
+				<view class="aui-grid" col="3" @click.stop="openWin('color/index')">
 					<view class="aui-grid-icon"><text class="iconfont iconcolor" style="color: #EE0000;"></text></view>
 					<view class="aui-grid-text">Color色彩</view>
 				</view>
-				<view class="aui-grid" col="3" onclick="aui.openWin('button/index.html')">
+				<view class="aui-grid" col="3" @click.stop="aui.openWin('button/index.html')">
 					<view class="aui-grid-icon"><text class="iconfont iconanniu" style="color: #eb077a;"></text></view>
 					<view class="aui-grid-text">Button按钮</view>
 				</view>
-				<view class="aui-grid" col="3" onclick="aui.openWin('tag/index.html')">
+				<view class="aui-grid" col="3" @click.stop="aui.openWin('tag/index.html')">
 					<view class="aui-grid-icon"><text class="iconfont icontag" style="font-size: 25px; color: #fe2f24;"></text></view>
 					<view class="aui-grid-text">Tag标签</view>
 				</view>
-				<view class="aui-grid" col="3" onclick="aui.openWin('badge/index.html')">
+				<view class="aui-grid" col="3" @click.stop="aui.openWin('badge/index.html')">
 					<view class="aui-grid-icon"><text class="iconfont iconbadge" style="font-size: 28px; color: #fec002;"></text></view>
 					<view class="aui-grid-text">Badge数字角标</view>
 				</view>
-				<view class="aui-grid" col="3" onclick="aui.openWin('list/index.html')">
+				<view class="aui-grid" col="3" @click.stop="aui.openWin('list/index.html')">
 					<view class="aui-grid-icon"><text class="iconfont iconlist" style="font-size: 28px; color: #add51d;"></text></view>
 					<view class="aui-grid-text">List列表</view>
 				</view>
-				<view class="aui-grid" col="3" onclick="aui.openWin('grid/index.html')">
+				<view class="aui-grid" col="3" @click.stop="aui.openWin('grid/index.html')">
 					<view class="aui-grid-icon"><text class="iconfont icongrid" style="font-size: 22px; color: #fe6503;"></text></view>
 					<view class="aui-grid-text">Grid九宫格</view>
 				</view>
-				<view class="aui-grid" col="3" onclick="aui.openWin('card/index.html')">
+				<view class="aui-grid" col="3" @click.stop="aui.openWin('card/index.html')">
 					<view class="aui-grid-icon"><text class="iconfont iconheadlines" style="color: #03A9F4;"></text></view>
 					<view class="aui-grid-text">Card卡片</view>
 				</view>
@@ -154,13 +154,13 @@
 	}
 	.aui-content{
 		/* #ifdef H5 */
-		height: calc(100vh - 50px - 44px);
+		height: calc(100vh - 50px - 50px);
 		/* #endif */		
 		/* #ifdef MP */
 		height: 100vh;
 		/* #endif */
 		/* #ifdef APP-PLUS */
-		height: calc(100vh - 50px);
+		height: calc(100vh - 50px - 26px);
 		/* #endif */
 	}
 	.content-top{width: 100%; padding: 20px; box-sizing: border-box;}
