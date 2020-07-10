@@ -84,6 +84,31 @@
 				"navigationBarTitleText": "Color-颜色"
 			}
 		}
+		,{
+		    "path" : "pages/ui/badge/index",
+		    "style" : {
+				"navigationBarTitleText": "Badge数字角标"
+			}
+		}
+		,{
+		    "path" : "pages/ui/button/index",
+		    "style" : {
+				"navigationBarTitleText": "Button按钮"
+			}
+		}
+		,{
+		    "path" : "pages/ui/card/index",
+		    "style" : {
+				"navigationBarTitleText": "Card卡片"
+			}
+		}
+		,{
+		    "path" : "pages/ui/grid/index",
+		    "style" : {
+				"navigationBarTitleText": "Grid九宫格"
+			}
+		}
+		
         ,{
             "path" : "pages/template/index",
             "style" : {

@@ -249,7 +249,7 @@
 .aui-btn-linear{background: none; color: #0062CC; border: 1px solid #0062CC;}
 .aui-btn-linear.aui-btn-disabled{background: none; color: #aaa; border: 1px solid #aaa;}
 .aui-btn-medium{width: 50%;}
-.aui-btn-small{width: auto; height: auto; line-height: initial; padding: 3px 10px;}
+.aui-btn-small{width: auto; height: auto; line-height: initial; display: inline; padding: 3px 10px;}
 
 /* card卡片 */
 .aui-card{width: 100%; background-color: #FFF; overflow: hidden;}
@@ -285,7 +285,7 @@
 	font-size: 14px;
 	color: #333;
 }
-.aui-card-title-right i{
+.aui-card-title-right text,.aui-card-title-right view{
 	position: relative;
 	top: 1px;
 	right: -2px;
