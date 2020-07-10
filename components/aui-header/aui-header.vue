@@ -61,7 +61,7 @@
 				_this.navigatorBarHeight = height + _this.navigatorBarHeight;
 				// #endif
 				// #ifdef H5
-				_this.navigatorBarHeight = _this.navigatorBarHeight;
+				_this.navigatorBarHeight = 50;
 				// #endif
 				//console.log(_this.navigatorBarHeight);
 			},
@@ -73,6 +73,9 @@
 	.aui-header{
 		width: 100vw;
 		height: 44px;
+		/* #ifdef H5 */
+		height: 50px;
+		/* #endif */
 		background: linear-gradient(to right, #197DE0, #73B9EC);
 		overflow: hidden;
 		position: relative;
@@ -84,6 +87,9 @@
 		content: '';
 		width: 100px;
 		height: 44px;	
+		/* #ifdef H5 */
+		height: 50px;
+		/* #endif */
 		background: linear-gradient(to right, #FF5555, #FF7777);
 		opacity: .9;
 		transform: skewX(45deg);
@@ -101,6 +107,10 @@
 		width: 44px;
 		height: 44px;
 		line-height: 44px;
+		/* #ifdef H5 */
+		height: 50px;
+		line-height: 50px;
+		/* #endif */
 		text-align: center;
 		position: absolute;
 		bottom: 0;
@@ -114,6 +124,10 @@
 	.aui-header-title{
 		height: 44px;
 		line-height: 44px;
+		/* #ifdef H5 */
+		height: 50px;
+		line-height: 50px;
+		/* #endif */
 		color: #FFF;
 		font-size: 18px;
 		text-align: center;
@@ -129,6 +143,10 @@
 		width: 44px;
 		height: 44px;
 		line-height: 44px;
+		/* #ifdef H5 */
+		height: 50px;
+		line-height: 50px;
+		/* #endif */
 		text-align: center;
 		position: absolute;
 		bottom: 0;

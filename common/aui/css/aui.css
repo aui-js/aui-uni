@@ -229,7 +229,7 @@
 	position: relative;
 }
 .aui-btn-blue{
-	background: var(--aui-blue);
+	background: #197DE0;
 	color: #FFF;
 }
 .aui-btn-load{ background: #2b85e4; pointer-events: none; cursor: default;}
